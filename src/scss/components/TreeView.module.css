@@ -7,7 +7,6 @@
 .treeNode {
   padding: 0;
 }
-
 .treeNode.active {
   color: hsl(211, 100%, 50%);
   font-weight: 500;
@@ -20,11 +19,9 @@
   color: black;
   text-decoration: none;
 }
-
 .fileLink:hover {
   background-color: rgba(0, 123, 255, 0.1);
 }
-
 .fileLink.active {
   color: hsl(211, 100%, 50%);
   font-weight: 500;
@@ -40,7 +37,6 @@
   background: none;
   cursor: pointer;
 }
-
 .folderButton:hover {
   background-color: rgba(0, 123, 255, 0.1);
 }
@@ -48,7 +44,6 @@
 .folderIcon {
   margin-right: 0.5rem;
 }
-
 .folderIcon.open {
   transform: rotate(90deg);
 }
@@ -57,11 +52,9 @@
   margin-left: 1.3rem;
   border-left: 2px solid hsl(210, 14%, 93%);
 }
-
 .children.open {
   display: block;
 }
-
 .children.closed {
   color: hsl(211, 100%, 50%);
   font-weight: 600;
@@ -71,4 +64,4 @@
 .treeNode .treeNode .fileLink,
 .treeNode .treeNode .folderButton {
   padding-left: 1.3rem;
-} 
+}/*# sourceMappingURL=TreeView.module.css.map */
