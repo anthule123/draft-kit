@@ -8,7 +8,7 @@ import remarkMermaid from "remark-mermaidjs";
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   trailingSlash: true,
-  assetPrefix: process.env.NODE_ENV === "production" ? "." : "",
+  assetPrefix: process.env.NODE_ENV === "production" ? "/roadkit" : "",
 };
 if (process.env.NODE_ENV === "production") {
   nextConfig.output = "export";
