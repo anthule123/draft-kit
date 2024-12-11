@@ -7,12 +7,12 @@ import remarkMermaid from "remark-mermaidjs";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  output: "export", // Thêm dòng này cho static export
-  images: {
-    unoptimized: true, // Thêm dòng này để tắt image optimization
-  },
-  basePath: process.env.NODE_ENV === "production" ? "/roadkit" : "", // Thêm dòng này cho GitHub Pages
 };
+if (process.env.NODE_ENV === "production") {
+  nextConfig.output = "export";
+  nextConfig.images = { unoptimized: true };
+  nextConfig.basePath = "/roadkit";
+}
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
