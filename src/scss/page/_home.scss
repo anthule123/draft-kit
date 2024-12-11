@@ -1,0 +1,9 @@
+$sidebar-width: 280px;
+$header-height: 60px;
+$content-width: 65ch;
+:root {
+    .home {
+        display: grid;
+        grid-template-columns: $sidebar-width auto;
+    }
+}

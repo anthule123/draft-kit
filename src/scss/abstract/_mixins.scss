@@ -1,0 +1,13 @@
+@use "./colors" as color;
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin dir-active {
+    color: color.$sidebar-active;
+    font-weight: 600;
+    background-color: rgba(color.$sidebar-active, 0.1);
+}

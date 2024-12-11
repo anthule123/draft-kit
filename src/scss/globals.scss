@@ -1,0 +1,43 @@
+@use "abstract/display";
+@use "base/typo";
+@use "base/reset";
+@use "components/mermaid";
+@use "layout/dual";
+@use "layout/table";
+@use "layout/article";
+@use "layout/sidebar";
+@use "layout/code";
+@use "page/home";
+
+body,
+html {
+    overflow-x: auto;
+    max-width: 5000px;
+}
+.details {
+    summary {
+        list-style: none;
+        position: relative;
+        padding-left: 0; // reset padding
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    .folderItem {
+        display: flex;
+        align-items: center;
+        gap: 4px; // khoảng cách giữa marker và text
+
+        &::before {
+            content: "▸";
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+    }
+
+    &[open] .folderItem::before {
+        transform: rotate(90deg);
+    }
+}

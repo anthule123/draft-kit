@@ -1,0 +1,88 @@
+@use "../abstract/colors" as color;
+@use "../abstract/mixins" as mixins;
+:root {
+    .sidebar {
+        width: 300px;
+        height: 100vh;
+        background-color: color.$sidebar-background;
+        border-right: 1px solid color.$sidebar-border;
+        padding: 20px;
+
+        &__header {
+            padding-bottom: 20px;
+            border-bottom: 1px solid color.$sidebar-border;
+
+            h2 {
+                margin: 0;
+                color: color.$sidebar-text;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .roadmap {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        position: relative;
+
+        // Vertical line
+        &::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: color.$sidebar-border;
+        }
+
+        &__item {
+            position: relative;
+            padding: 20px 0 20px 50px;
+
+            &--completed {
+                .roadmap__icon {
+                    background-color: color.$sidebar-completed;
+                    color: color.$background;
+                }
+            }
+
+            &--active {
+                .roadmap__icon {
+                    background-color: color.$sidebar-active;
+                    color: color.$background;
+                }
+            }
+        }
+
+        &__content {
+            h3 {
+                margin: 0 0 5px;
+                font-size: 1.1rem;
+                color: color.$sidebar-text;
+            }
+
+            p,
+            div {
+                margin: 1rem;
+                color: color.$sidebar-secondary;
+                font-size: 1rem;
+            }
+        }
+
+        &__icon {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: color.$sidebar-border;
+            @include mixins.flex-center;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+    }
+}

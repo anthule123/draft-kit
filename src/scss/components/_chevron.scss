@@ -1,0 +1,13 @@
+.chevron {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.2s ease;
+    margin-right: 8px;
+
+    &.chevronOpen {
+        transform: rotate(45deg);
+    }
+}

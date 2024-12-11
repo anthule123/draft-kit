@@ -1,0 +1,46 @@
+@use "../abstract/colors" as color;
+article {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+
+    h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.875rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    pre {
+        background: color.$code-bg;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+    }
+
+    blockquote {
+        border-left: 4px solid color.$blockquote-border;
+        padding-left: 1rem;
+        font-style: italic;
+        margin: 1.5rem 0;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        margin: 1.5rem 0;
+    }
+}

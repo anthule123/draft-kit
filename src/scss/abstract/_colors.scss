@@ -1,0 +1,33 @@
+// Professional warm green as primary
+$primary: #28a745;
+$primary-light: hsl(145, 65%, 65%);
+$primary-dark: hsl(145, 65%, 30%);
+
+//green cool
+$greencool: hsl(160, 65%, 45%); // Cool green
+$greencool-light: hsl(160, 65%, 65%);
+$greencool-dark: hsl(160, 65%, 35%);
+// Professional happy pink as accent
+$accent: hsl(350, 75%, 65%); // Professional pink
+$accent-light: hsl(350, 75%, 75%);
+$accent-dark: hsl(350, 75%, 55%);
+
+// Professional gray
+$mygray: hsl(220, 10%, 55%); // Slightly cool gray
+$mygray-light: hsl(220, 10%, 85%);
+$mygray-dark: hsl(220, 10%, 35%);
+
+//for article
+$foreground: hsl(0, 0%, 15%);
+$background: hsl(0, 0%, 100%);
+$code-bg: hsl(0, 0%, 96%);
+$blockquote-border: hsl(0, 0%, 87%);
+
+// Sidebar specific colors
+$sidebar-completed: hsl(134, 61%, 41%); // Original green
+$sidebar-active: hsl(211, 100%, 50%); // Original blue
+//$sidebar-active: red;
+$sidebar-border: hsl(210, 14%, 93%);
+$sidebar-background: hsl(210, 17%, 98%);
+$sidebar-text: hsl(210, 10%, 15%);
+$sidebar-secondary: hsl(210, 7%, 46%);

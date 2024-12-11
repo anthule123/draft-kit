@@ -1,0 +1,67 @@
+.active {
+  color: hsl(211, 100%, 50%);
+  font-weight: 600;
+  background-color: rgba(0, 123.25, 255, 0.1);
+}
+
+.treeNode {
+  padding: 0.25rem 0;
+}
+.treeNode.active {
+  color: hsl(211, 100%, 50%);
+  font-weight: 600;
+  background-color: rgba(0, 123.25, 255, 0.1);
+}
+
+.fileLink {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: black;
+  text-decoration: none;
+}
+.fileLink:hover {
+  background-color: rgba(0, 123.25, 255, 0.1);
+}
+.fileLink.active {
+  color: hsl(211, 100%, 50%);
+  font-weight: 600;
+  background-color: rgba(0, 123.25, 255, 0.1);
+}
+
+.folderButton {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  color: hsl(210, 10%, 15%);
+  background: none;
+  cursor: pointer;
+}
+.folderButton:hover {
+  background-color: rgba(0, 123.25, 255, 0.1);
+}
+
+.folderIcon {
+  margin-right: 0.75rem;
+}
+.folderIcon.open {
+  transform: rotate(90deg);
+}
+
+.children {
+  margin-left: 1.25rem;
+  border-left: 2px solid hsl(210, 14%, 93%);
+}
+.children.open {
+  display: block;
+}
+.children.closed {
+  color: hsl(211, 100%, 50%);
+  font-weight: 600;
+  display: none;
+}
+
+.treeNode .treeNode .fileLink,
+.treeNode .treeNode .folderButton {
+  padding-left: 1.5rem;
+}

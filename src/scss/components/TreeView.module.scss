@@ -1,0 +1,75 @@
+// src/scss/components/TreeView.module.scss
+@use "../abstract/colors" as color;
+@use "../abstract/mixins" as mixins;
+
+.active {
+    @include mixins.dir-active;
+}
+.treeNode {
+    padding: 0.25rem 0;
+
+    &.active {
+        @include mixins.dir-active;
+    }
+}
+
+.fileLink {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+        background-color: rgba(color.$sidebar-active, 0.1);
+    }
+
+    &.active {
+        @include mixins.dir-active;
+    }
+}
+
+.folderButton {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    color: color.$sidebar-text;
+    background: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(color.$sidebar-active, 0.1);
+    }
+}
+
+.folderIcon {
+    margin-right: 0.75rem;
+
+    &.open {
+        transform: rotate(90deg);
+    }
+}
+
+.children {
+    margin-left: 1.25rem;
+    border-left: 2px solid color.$sidebar-border;
+
+    &.open {
+        display: block;
+    }
+
+    &.closed {
+        color: color.$sidebar-active;
+        font-weight: 600;
+        display: none;
+    }
+}
+
+.treeNode {
+    .treeNode {
+        .fileLink,
+        .folderButton {
+            padding-left: 1.5rem;
+        }
+    }
+}
