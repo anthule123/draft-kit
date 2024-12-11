@@ -8,6 +8,6 @@
 
 @mixin dir-active {
     color: color.$sidebar-active;
-    font-weight: 600;
+    font-weight: 500;
     background-color: rgba(color.$sidebar-active, 0.1);
 }

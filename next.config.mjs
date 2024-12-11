@@ -4,20 +4,18 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeTypst from "@myriaddreamin/rehype-typst";
 import rehypeStringify from "rehype-stringify";
+import rehypeMermaid from "rehype-mermaid";
+import remarkMermaid from "remark-mermaidjs";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  generateStaticParams: async () => {
-    // Đây là nơi bạn định nghĩa tất cả các dynamic paths
-    return {
-      dynamicParams: true, // Cho phép generate dynamic params
-    };
-  },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
 const withMDX = createMDX({
+  extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, remarkMermaid],
     rehypePlugins: [rehypeTypst],
   },
 });

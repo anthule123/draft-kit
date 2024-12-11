@@ -1,5 +1,9 @@
 # Math Blocks in Typst
 
+## Tài liệu
+
+- [Math Blocks Documentation](https://typst.app/docs/reference/math/)
+- [Math Block Examples](https://sitandr.github.io/typst-examples-book/book/basics/math/vec.html)
 Typst provides powerful support for mathematical expressions and equations through its math block system.
 
 ## Math Block Features
@@ -17,21 +21,53 @@ Math blocks support:
 - Multi-line equations
 
 ### Examples
-
-Basic equation:
-```typ
-$ x^2 + y^2 = z^2 $
-```
-
 Complex math block:
+
+#### VD1
+<div className='dual_layout'>
+
+<div>
+Input
 ```typ
-$$
-integral_0^infinity
-  frac{x^3}{e^x - 1}
-  dif x =
-  frac{pi^4}{15}
-$$
+
+integral_0^infinity frac(x^3, e^x - 1) dif x
+= frac(pi^4, 15)
+
 ```
+</div>
+<div>
+Output
+<div>
+```math
+integral_0^infinity frac(x^3, e^x - 1) dif x
+= frac(pi^4, 15)
+```
+</div>
+</div>
+</div>
+
+#### VD2
+
+<div className='dual_layout'>
+
+<div>
+Input
+```typ
+vec(a/b, a/b, a/b) = vec(1, 1, 1)
+
+```
+</div>
+<div>
+Output
+<div>
+```math
+vec(a/b, a/b, a/b) = vec(1, 1, 1)
+
+```
+</div>
+</div>
+</div>
+
 
 ### Common Math Notation
 Math blocks automatically handle:

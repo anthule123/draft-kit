@@ -2,10 +2,15 @@ import "@/css/globals.css";
 import { garamond, inter, merriweather } from "@/app/fonts";
 import { Metadata } from "next";
 import TreeSideBar from "@/app/components/TreeSideBar";
-import { getContentTree } from '@/app/lib/content';
+import { getContentTree } from "@/app/lib/content";
 export const metadata: Metadata = {
-  title: "Computer roadmap",
-  description: "Computer set up",
+  title: "RoadKit",
+  description: "Toolkit set up for roadmaps",
+  keywords: ["roadmap", "toolkit", "planning"],
+  openGraph: {
+    title: "RoadKit",
+    description: "Toolkit set up for roadmaps",
+  },
 };
 export default function RootLayout({
   children,
