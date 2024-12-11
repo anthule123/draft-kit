@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "preview": "serve out",
     "build:sass": "sass --no-source-map src/scss:src/css",
     "watch:sass": "sass --no-source-map --watch src/scss:src/css",
     "dev:next": "next dev",
@@ -36,6 +37,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",
     "sass": "^1.82.0",
+    "serve": "^14.2.4",
     "unified": "^11.0.5"
   },
   "devDependencies": {
