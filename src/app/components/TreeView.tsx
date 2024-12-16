@@ -12,8 +12,14 @@ export default function TreeView({ data }: { data: TreeNode }) {
   const isPathChild = decodeURI(pathname).startsWith(decodeURI(data.path));
   const [isOpen, setIsOpen] = useState(isPathChild);
 
-  const isActive = decodeURI(pathname) === decodeURI(data.path);
-
+  const isActive =
+    decodeURI(pathname).replace(/\/$/, "") ===
+    decodeURI(data.path).replace(/\/$/, "");
+  console.log({
+    pathname: decodeURI(pathname),
+    dataPath: decodeURI(data.path),
+    isActive: decodeURI(pathname) === decodeURI(data.path),
+  });
   if (data.isFile) {
     return (
       <Link
