@@ -1,0 +1,20 @@
+{
+  "emmet.includeLanguages": {
+    "markdown": "html",
+    "mdx": "html"
+  },
+  "[markdown]": {
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    }
+  },
+  "[mdx]": {
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    }
+  }
+}
