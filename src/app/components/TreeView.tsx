@@ -15,6 +15,7 @@ export default function TreeView({ data }: { data: TreeNode }) {
   const isActive =
     decodeURI(pathname).replace(/\/$/, "") ===
     decodeURI(data.path).replace(/\/$/, "");
+
   console.log({
     pathname: decodeURI(pathname),
     dataPath: decodeURI(data.path),
