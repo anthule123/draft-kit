@@ -2,7 +2,7 @@ import createMDX from "@next/mdx";
 
 import rehypeTypst from "@myriaddreamin/rehype-typst";
 import remarkMermaid from "remark-mermaidjs";
-
+import remarkMath from 'remark-math';
 import rehypeShiki from "@shikijs/rehype";
 
 /** @type {import('next').NextConfig} */
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkMermaid],
+    remarkPlugins: [remarkMath, remarkMermaid],
     rehypePlugins: [
       rehypeTypst,
       [

@@ -3,6 +3,8 @@ import { garamond, inter, merriweather } from "@/app/fonts";
 import { Metadata } from "next";
 import TreeSideBar from "@/app/components/TreeSideBar";
 import { getContentTree } from "@/app/lib/content";
+import 'katex/dist/katex.min.css'
+import 'katex/dist/katex.css'
 export const metadata: Metadata = {
   title: "RoadKit",
   description: "Toolkit set up for roadmaps",
@@ -23,6 +25,7 @@ export default function RootLayout({
     <html lang="vi">
       <head>
         <meta charSet="UTF-8" />
+       
       </head>
       <body
         className={` ${garamond.variable}
@@ -36,8 +39,10 @@ export default function RootLayout({
           </span>
           <span>
             <div>{children}</div>{" "}
+
           </span>
         </div>
+        <span className="math-inline"> $2^2=4$</span>
       </body>
     </html>
   );
