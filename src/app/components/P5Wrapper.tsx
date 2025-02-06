@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import p5 from 'p5'
 
 
-
 const P5Wrapper: React.FC<P5WrapperProps>=({sketch})=> {
     const p5ContainerRef = useRef<HTMLDivElement>(null)
     useEffect(() =>{
