@@ -1,5 +1,5 @@
-import { SiMermaid, SiTypst, SiLatex, SiNextdotjs } from "react-icons/si";
-import { FaMarkdown, FaFolder, FaPencilAlt } from "react-icons/fa";
+import { SiMermaid, SiTypst, SiP5Dotjs} from "react-icons/si";
+import { FaMarkdown, FaFolder, FaPencilAlt, } from "react-icons/fa";
 import Link from "next/link";
 
 const Features = () => {
@@ -37,14 +37,14 @@ const Features = () => {
               Typst
             </Link>{" "}
           </strong>
-          for block mathematics
+          for  mathematics
         </span>
       </div>
 
       <div className="flex items-center gap-2">
-        <SiLatex size={20} />
+        <SiP5Dotjs size={20} />
         <span>
-          <strong>KaTeX</strong> for inline math expressions
+          Automatic <strong>P5js</strong> for visualization
         </span>
       </div>
 
