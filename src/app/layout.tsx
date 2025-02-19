@@ -6,12 +6,12 @@ import { getContentTree } from "@/app/lib/content";
 import 'katex/dist/katex.min.css'
 import 'katex/dist/katex.css'
 export const metadata: Metadata = {
-  title: "RoadKit",
-  description: "Toolkit set up for roadmaps",
+  title: "DraftKit",
+  description: "Toolkit set up for drafts",
   keywords: ["roadmap", "toolkit", "planning"],
   openGraph: {
-    title: "RoadKit",
-    description: "Toolkit set up for roadmaps",
+    title: "Draft",
+    description: "Toolkit set up for drafts",
   },
 };
 export default function RootLayout({
