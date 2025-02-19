@@ -10,12 +10,12 @@ import remarkMath from 'remark-math'
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   trailingSlash: true,
-  assetPrefix: process.env.NODE_ENV === "production" ? "/roadkit" : "",
+  assetPrefix: process.env.NODE_ENV === "production" ? "/draft-kit" : "",
 };
 if (process.env.NODE_ENV === "production") {
   nextConfig.output = "export";
   nextConfig.images = { unoptimized: true };
-  nextConfig.basePath = "/roadkit";
+  nextConfig.basePath = "/draft-kit";
 }
 
 const withMDX = createMDX({

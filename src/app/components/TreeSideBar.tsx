@@ -7,7 +7,7 @@ export default function TreeSideBar({ tree }: { tree: TreeNode }) {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <h3>RoadKit</h3>
+        <h3>DraftKit</h3>
       </div>
       <TreeView data={tree} />
     </div>
