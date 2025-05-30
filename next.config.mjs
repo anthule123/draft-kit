@@ -10,7 +10,8 @@ import remarkMath from 'remark-math'
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   trailingSlash: true,
-  assetPrefix: process.env.NODE_ENV === "production" ? "/draft-kit" : "",
+  assetPrefix: process.env.NODE_ENV === "production" ?
+   "/draft-kit" : "",
 };
 if (process.env.NODE_ENV === "production") {
   nextConfig.output = "export";
