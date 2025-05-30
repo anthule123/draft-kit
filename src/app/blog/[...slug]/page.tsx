@@ -1,5 +1,8 @@
-import fs from 'fs' 
-import path from 'path'
+
+import fs from "fs";
+import path from "path";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
 import style from '@/css/components/article.module.css';
 
 const folderPlace = 'app/trial/fs/MyFolder'
@@ -28,19 +31,30 @@ function getAllDocPaths(dir: string, basePath: string[]=[]){
     }
     return paths;
 }
-export async function generateStaticParams() {
+
+type Params = {
+    slug: string[]
+}
+export async function generateStaticParams(): Promise<Params[]>{
     const folderDir = path.join(process.cwd(), `src/content/blog`);
     const paths = getAllDocPaths(folderDir, []);
-    return paths.map((pathArray ) => ({slug: pathArray}));
+    
+    const result =  paths.map((pathArray ) => ({slug: pathArray}));
+    
+    if(!result || result.length===0){
+        return [{slug: ['not-found']}];
+    }
+    return result
 }
 export default async function BlogPage(
-    {params}: {params: Promise<{slug: string[]}>}
+    props: any
 ) {
     try{
         //join slug array with '/'
+        const params = props.params;
         const {slug: slugArray} = await params;
         const decodeURISlugArray = slugArray.map(
-            (segment)=> (decodeURIComponent(segment))
+            (segment: any)=> (decodeURIComponent(segment))
         )
         const slugPath = decodeURISlugArray.join('/') 
 
@@ -60,4 +74,4 @@ export default async function BlogPage(
         )
     }
 }
-export const dynamicParams = false
+export const dynamic = 'force-static'
