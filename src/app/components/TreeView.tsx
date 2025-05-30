@@ -1,64 +1,65 @@
-// components/TreeView.tsx
-"use client";
-import { TreeNode } from "@/app/lib/types";
-import { usePathname } from "next/navigation";
+'use client'
 import Link from "next/link";
-import { useState } from "react";
-import treeView from "@/css/components/TreeView.module.css";
 
-export default function TreeView({ data }: { data: TreeNode }) {
-  const pathname = usePathname();
-  // Kiểm tra xem pathname có phải là con của data.path
-  const isPathChild = decodeURI(pathname).startsWith(decodeURI(data.path));
-  const [isOpen, setIsOpen] = useState(isPathChild);
+import { usePathname } from "next/navigation";
+import {  useState } from "react";
+import style from '@/css/components/TreeView.module.css';
+import { TreeNode } from "../blog/types";
+import { GREEN } from "../blog/constant";
 
-  const isActive =
-    decodeURI(pathname).replace(/\/$/, "") ===
-    decodeURI(data.path).replace(/\/$/, "");
+export default function TreeView({
+    data, 
+}: {data: TreeNode,
+}){
+    const pathname = usePathname();
+    const isPathChild = decodeURI(pathname).startsWith(decodeURI(data.path)) 
+    const [isOpen, setIsOpen] = useState(isPathChild); 
+    const isActive = decodeURI(pathname).replace(/\/$/, "")
+                     === decodeURI(data.path).replace(/\/$/, "")
+                    && data.isMdxFile;
+    // console.log({
+    // pathname: decodeURI(pathname),
+    // dataPath: decodeURI(data.path),
+    // isActive: decodeURI(pathname) === decodeURI(data.path),
+    // });
+    if(data.color!==GREEN){
+        return <></>
+    }
+    if (data.isMdxFile) return (
+        <div className={`${isActive? `${style.active}`: '' } ${style.item}`}>
+            <Link href = {data.path}
+> {data.name} </Link>
+        </div>
+    )
+    if(data.name==='') return (
+        <ChildrenShow data = {data}/>
+    )
+    else return (
+        <div className="">
+            <details open = {isOpen}
+                    onToggle={(e) => setIsOpen(e.currentTarget.open)}
+                    className=""
+            >
+                <summary className={`${style.item}`}> {data.name} </summary>
+                <ChildrenShow data = {data}/>
+            </details>
 
-  console.log({
-    pathname: decodeURI(pathname),
-    dataPath: decodeURI(data.path),
-    isActive: decodeURI(pathname) === decodeURI(data.path),
-  });
-  if (data.isFile) {
-    return (
-      <Link
-        href={data.path}
-        className={`${treeView.fileLink} ${isActive ? treeView.active : ""}`}
-      >
-        <div className={treeView.treeNode}>{data.name}</div>
-      </Link>
-    );
-  }
+        </div>
+    )
+}
 
-  function clsx(chevron: string, arg1: string | boolean): string | undefined {
-    throw new Error("Function not implemented.");
-  }
-
-  return (
-    <div className={`${treeView.treeNode} ${isActive ? treeView.active : ""}`}>
-      <details open={isOpen} onToggle={(e) => setIsOpen(e.currentTarget.open)}>
-        <summary
-          className={`${treeView.folderButton} ${isActive ? "active" : ""}`}
-        >
-          <span
-            className={`${treeView.folderIcon} ${isOpen ? treeView.open : ""}`}
-          >
-            ▶
-          </span>
-          <div>{data.name}</div>
-        </summary>
-        {data.children && (
-          <div
-            className={`${treeView.children} ${isOpen ? treeView.open : treeView.closed}`}
-          >
-            {data.children.map((child) => (
-              <TreeView key={child.path} data={child} />
-            ))}
-          </div>
-        )}
-      </details>
-    </div>
-  );
+export function ChildrenShow({data}:{data: TreeNode}){
+    return  (
+        <div>
+            {data.children && 
+            <div>
+                {data.children.map((child, index) => (
+                <TreeView key={index} 
+                data={child} />
+                ))}
+            </div>
+            }
+           
+        </div>
+    )
 }

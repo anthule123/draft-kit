@@ -1,4 +1,5 @@
 @use "abstract/display";
+@use 'abstract/colors';
 @use "base/typo";
 @use "base/reset";
 /* @use "components/mermaid"; */
@@ -14,31 +15,11 @@ html {
     overflow-x: auto;
     max-width: 5000px;
 }
-details {
-    border: 1px solid green;
-    
-    summary {
-        position: relative;
-        padding-left: 0; // reset padding
-        cursor: pointer;
-        &::-webkit-details-marker {
-            display: none;
-        }
-    }
 
-    .folderItem {
-        display: flex;
-        align-items: center;
-        gap: 4px; // khoảng cách giữa marker và text
-
-        &::before {
-            content: "▸";
-            display: inline-block;
-            transition: transform 0.2s ease;
-        }
-    }
-
-    &[open] .folderItem::before {
-        transform: rotate(90deg);
+.resizeHandler{
+    background: black;
+    border : 1px solid grey;
+    &:hover{
+        border : 3px solid colors.$accent-color;
     }
 }

@@ -1,10 +1,9 @@
 import "@/css/globals.css";
 import { garamond, inter, merriweather } from "@/app/fonts";
 import { Metadata } from "next";
-import TreeSideBar from "@/app/components/TreeSideBar";
-import { getContentTree } from "@/app/lib/content";
-import 'katex/dist/katex.min.css'
-import 'katex/dist/katex.css'
+
+import PanelLayout2 from "./panelLayout2";
+import { getContentTree } from "./blog/getContentTree";
 export const metadata: Metadata = {
   title: "DraftKit",
   description: "Toolkit set up for drafts",
@@ -32,17 +31,12 @@ export default function RootLayout({
                          ${inter.variable} ${merriweather.variable}
         antialiased`}
       >
-        {/* <Header /> */}
-        <div className="home">
-          <span>
-            <TreeSideBar tree={tree} />
-          </span>
-          <span>
-            <div>{children}</div>{" "}
-
-          </span>
+        <div>
+            <PanelLayout2
+            tree = {tree}
+            children={children} />
         </div>
-        <span className="math-inline"> $2^2=4$</span>
+        
       </body>
     </html>
   );
