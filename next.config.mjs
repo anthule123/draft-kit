@@ -10,15 +10,15 @@ import remarkGfm from 'remark-gfm'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  trailingSlash: false,
-  // assetPrefix: process.env.NODE_ENV === "production" ?
-  //  "/draft-kit" : "",
+  trailingSlash: true,
+  assetPrefix: process.env.NODE_ENV === "production" ?
+   "/draft-kit" : "",
 };
 
 if (process.env.NODE_ENV === "production") {
   nextConfig.output = "export";
-  // nextConfig.images = { unoptimized: true };
-  // nextConfig.basePath = "/draft-kit";
+  nextConfig.images = { unoptimized: true };
+  nextConfig.basePath = "/draft-kit";
 }
 
 const withMDX = createMDX({
