@@ -3,7 +3,7 @@ import path from 'path'
 import style from '@/css/components/article.module.css';
 
 const folderPlace = 'app/trial/fs/MyFolder'
- function getAllDocPaths(dir: string, basePath: string[]=[]){
+export function getAllDocPaths(dir: string, basePath: string[]=[]){
     const entries = fs.readdirSync(dir, 
         {
             withFileTypes: true, 
@@ -28,7 +28,7 @@ const folderPlace = 'app/trial/fs/MyFolder'
     }
     return paths;
 }
-export async function generateStaticParams() {
+export  function generateStaticParams() {
     const folderDir = path.join(process.cwd(), `src/content/blog`);
     const paths = getAllDocPaths(folderDir, []);
     return paths.map((pathArray ) => ({slug: pathArray}));
