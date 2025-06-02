@@ -16,7 +16,7 @@ const nextConfig = {
 };
 
 if (process.env.NODE_ENV === "production") {
-  nextConfig.output = "export";
+   nextConfig.output = "export";
   nextConfig.images = { unoptimized: true };
   nextConfig.basePath = "/draft-kit";
 }
