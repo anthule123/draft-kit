@@ -1,14 +1,16 @@
 # Nhảy cầu kính
 
-{/* 
+
 Nguồn bài: [Puzzle](https://quanhoang-pm.github.io/puzzle/glass-bridge-in-squid-game/)
 
 [Squid Game](https://en.wikipedia.org/wiki/Squid_Game) là một series được phát hành trên Netflix vào tháng 09/2021. Nó kể về một cuộc thi nơi 456 người chơi đánh cược mạng sống của bản thân trong khi tham gia các trò chơi _đơn giản_ để giành lấy một phần thưởng vô cùng lớn. Câu đố dưới đây được lấy cảm hứng từ một trong những trò chơi diễn ra trong cuộc thi này.
-/*/}
+
 
 ### Mô tả
 
-Có một nhóm người (đủ đông) tham gia trò chơi **Nhảy cầu kính**. Cây cầu gồm $n$ hàng kính ($n$ là một số nguyên dương), mỗi hàng kính có hai tấm kính: một kính cường lực và một kính thường. Kính cường lực có thể chịu được sức nặng của một người bất kỳ, kính thường thì không.
+Có một nhóm người (đủ đông) tham gia trò chơi **Nhảy cầu kính**.
+ Cây cầu gồm $n$ hàng kính ($n$ là một số nguyên dương), mỗi hàng kính có hai tấm kính: 
+ một kính cường lực và một kính thường. Kính cường lực có thể chịu được sức nặng của một người bất kỳ, kính thường thì không.
 
 Tất cả người chơi xếp thành một dãy tại vị trí xuất phát và lần lượt nhảy trên cầu kính, mỗi thời điểm có tối đa một người trên cầu. Mỗi giây, người đứng trên cầu (hoặc đứng đầu ở vị trí xuất phát) phải chọn một trong hai tấm kính trong hàng kính tiếp theo và nhảy tới đó. Nếu đó là kính cường lực, người chơi tiếp tục trò chơi, nếu đó là kính thường, kính vỡ và người chơi bị loại khỏi trò chơi.
 
@@ -65,8 +67,10 @@ Một câu hỏi khác có liên quan là
 
 ### Hướng dẫn giải
 
-{/* <details>
+<details>
 <summary>Gợi ý</summary>
 
-Xét bài toán gốc với cây cầu gồm $n$ hàng kính, sử dụng phương pháp đệ quy để chỉ ra chỉ có $n+1$ người đầu tiên có cơ hội giành chiến thắng với xác suất là giá trị chuẩn hóa của dòng thứ $n+1$ trong tam giác Pascal.
-</details> */}
+Xét bài toán gốc với cây cầu gồm $n$ hàng kính, 
+sử dụng phương pháp đệ quy để chỉ ra chỉ có $n+1$ người đầu tiên có cơ hội giành
+ chiến thắng với xác suất là giá trị chuẩn hóa của dòng thứ $n+1$ trong tam giác Pascal.
+</details>

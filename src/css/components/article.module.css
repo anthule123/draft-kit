@@ -19,8 +19,13 @@
   margin-bottom: 1.5rem;
 }
 .article pre {
-  padding: 1.5rem;
   border-radius: 0.5rem;
   overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.article blockquote {
+  border-left: 4px solid grey;
+  padding-left: 1rem;
+  font-style: italic;
   margin: 1.5rem 0;
 }
