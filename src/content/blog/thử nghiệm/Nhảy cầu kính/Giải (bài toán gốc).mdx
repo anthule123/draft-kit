@@ -91,42 +91,45 @@ Mỗi lần chơi lại có 1 độ đo xác suất, tổng các độ đo xác 
 sau đó dùng pp quy nạp ta tìm ra công thức tổng quát. 
 
 ### Công thức đệ quy 
-Ta thấy khi $i=1$ thì 
-```math
-    P(S(1, 0, 0)) &= 1 \
-    p(S(1, k, k)) &= frac(1,2) p(S(1,k-1,k-1)) "với " k=2,...,N \  
-```
-Ta có thể làm vậy dễ dàng vì xác suất chọn mỗi loại kính 
-đều bằng nhau và bằng $1/2$.
+<details>
+    Ta thấy khi $i=1$ thì
+    ```math
+        P(S(1, 0, 0)) &= 1 \
+        p(S(1, k, k)) &= frac(1,2) p(S(1,k-1,k-1)) = 1/2^k "với " k=1,...,N \
+    ```
+    Ta có thể làm vậy dễ dàng vì xác suất chọn mỗi loại kính
+    đều bằng nhau và bằng $1/2$.
+    
+    Ta thấy sự kiện $S(i,k,t)$ có liên quan đến
+    sự kiện :
+    - $S(i,k+1,t+1)$ : Nếu sự kiện $S(i,k,t)$ xảy ra thì
+    người i sẽ có quyền chọn lựa hàng kính tiếp theo,
+    dẫn đến
+    $S(i,k+1,t+1)$ sẽ xảy ra nếu chọn đc lựa chọn an toàn (là
+    cái kính cường lực), $D(i,k+1,t+1)$ sẽ xảy ra nếu chọn
+    phải kính vỡ.
+    
+    Ta xem xét bước chuyển khi người $i$ rơi vào trạng thái
+    nguy hiểm $D(i,k,t)$, khi đó 'chưa từng có ai an toàn ở vị trí k'
+    nên ta dùng chiến lược để cho người tiếp theo là $i+1$
+    sẽ học hỏi người $i$ và là người đầu tiên an toàn ở
+    vị trí $k$, dẫn đến trạng thái $S(i+1,k,t+k)$.
+    
+    Tổng hợp từ 2 quan sát trên, ta cho rằng sự kiện $S(i+1,k,t+k)$
+    chỉ có thể do 1 trong 2 sự kiện rời nhau:
+    ```math
+        S(i+1,k+1,t+k+1) = S(i+1,k,t+k) union D(i,k+1,t)
+    ```
+</details>
+    Ta có công thức
+    <pre>
+    ```math
+        P( S(i+1,k+1,t+k+1)) &= 1/2 P(S(i+1,k,t+k)) + P(D(i,k+1,t)) \
+        P( S(i+1,k+1,t+k+1)) &= 1/2 P(S(i+1,k,t+k)) + 1/2 P(S(i,k,t-1))
+    ```
+    [^1].
+    </pre>
 
-Ta thấy sự kiện $S(i,k,t)$ có liên quan đến 
-sự kiện : 
-- $S(i,k+1,t+1)$ : Nếu sự kiện $S(i,k,t)$ xảy ra thì 
-người i sẽ có quyền chọn lựa hàng kính tiếp theo, 
-dẫn đến 
-$S(i,k+1,t+1)$ sẽ xảy ra nếu chọn đc lựa chọn an toàn (là 
-cái kính cường lực), $D(i,k+1,t+1)$ sẽ xảy ra nếu chọn 
-phải kính vỡ. 
-
-Ta xem xét bước chuyển khi người $i$ rơi vào trạng thái 
-nguy hiểm $D(i,k,t)$, khi đó 'chưa từng có ai an toàn ở vị trí k' 
-nên ta dùng chiến lược để cho người tiếp theo là $i+1$ 
-sẽ học hỏi người $i$ và là người đầu tiên an toàn ở 
-vị trí $k$, dẫn đến trạng thái $S(i+1,k,t+k)$. 
-
-Tổng hợp từ 2 quan sát trên, ta cho rằng sự kiện $S(i+1,k,t+k)$ 
-chỉ có thể do 1 trong 2 sự kiện rời nhau: 
-```math
-    S(i+1,k+1,t+k+1) = S(i+1,k,t+k) union D(i,k+1,t)
-```
-Ta có công thức 
-<pre>
-```math 
-    P( S(i+1,k+1,t+k+1)) &= 1/2 P(S(i+1,k,t+k)) + P(D(i,k+1,t)) \
-    P( S(i+1,k+1,t+k+1)) &= 1/2 P(S(i+1,k,t+k)) + 1/2 P(S(i,k,t-1))
-```
-[^1].
-</pre>
 
 
 ### Công thức tổng quát 
@@ -135,36 +138,38 @@ Ta có công thức
 chứng minh $n+1$ 
 người đầu tiên có xác suất giành chiến thắng là giá trị chuẩn hóa của dòng thứ $n+1$
  trong tam giác Pascal. Nên ta làm thử 3 bước quy nạp: 
-
-#### B1. Trường hợp cơ sở 
-Với $n=1$, ta có 
-```math 
-        P(W_1) &= 1/2 \
-        P(W_2) &= 1/2 
-```
-#### B2. Giả thiết quy nạp 
-Giả thuyết quy nạp: 
-<pre>
-Với $n=1,...,N$, ta có 
-```math 
-        P(W_i) = sum_t P(S(i,n,t)) = binom(n, i-1)/ 2^n " với " i=1,...,n+1
-```
-</pre>
-Ta thấy trường hợp cơ sở n=1 thì giả thuyết đúng. 
-
-Ta giả sử giả thuyết đúng với $n=1,...,N$, ta sẽ chứng 
-minh giả thuyết đúng với $n=N+1$. 
-<pre>
-```math 
-    P( S(i,N+1,t)) &= 1/2 P(S(i,N,t-1)) + 1/2 P(S(i-1,N,t-N-2))
-```
-</pre>
-Sau đó ta lấy tổng tất cả t của 2 vế, ta có 
-```math 
- sum_t P( S(i,N+1,t)) &= 1/2 sum_t P(S(i,N,t-1)) + 1/2 sum_t P(S(i-1,N,t-N-2))\
-  &= 1/2 binom(N, i)/ 2^N + 1/2 binom(N,i-1)/2^N  \
-  &= 1/2^(N+1) binom(N+1,i)
-```
+<details>
+    
+    #### B1. Trường hợp cơ sở
+    Với $n=1$, ta có
+    ```math
+            P(W_1) &= 1/2 \
+            P(W_2) &= 1/2
+    ```
+    #### B2. Giả thiết quy nạp
+    Giả thuyết quy nạp:
+    <pre>
+    Với $n=1,...,N$, ta có
+    ```math
+            P(W_i) = sum_t P(S(i,n,t)) = binom(n, i-1)/ 2^n " với " i=1,...,n+1
+    ```
+    </pre>
+    Ta thấy trường hợp cơ sở n=1 thì giả thuyết đúng.
+    
+    Ta giả sử giả thuyết đúng với $n=1,...,N$, ta sẽ chứng
+    minh giả thuyết đúng với $n=N+1$.
+    <pre>
+    ```math
+        P( S(i,N+1,t)) &= 1/2 P(S(i,N,t-1)) + 1/2 P(S(i-1,N,t-N-2))
+    ```
+    </pre>
+    Sau đó ta lấy tổng tất cả t của 2 vế, ta có
+    ```math
+     sum_t P( S(i,N+1,t)) &= 1/2 sum_t P(S(i,N,t-1)) + 1/2 sum_t P(S(i-1,N,t-N-2))\
+      &= 1/2 binom(N, i)/ 2^N + 1/2 binom(N,i-1)/2^N  \
+      &= 1/2^(N+1) binom(N+1,i)
+    ```
+</details>
 Như vậy ra ta đã chứng minh được giả thuyết đúng với $n=N+1$.  
 #### B3. Kết luận 
 Ta có được công thức tổng quát của xác suất mỗi người chiến thắng.  

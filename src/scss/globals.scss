@@ -15,7 +15,10 @@ html {
     overflow-x: auto;
     max-width: 5000px;
 }
-
+details{
+    border: 1px solid green;
+    cursor: pointer
+}
 .resizeHandler{
     background: black;
     border : 1px solid grey;
