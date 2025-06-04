@@ -116,9 +116,9 @@ sau đó dùng pp quy nạp ta tìm ra công thức tổng quát.
     vị trí $k$, dẫn đến trạng thái $S(i+1,k,t+k)$.
     
     Tổng hợp từ 2 quan sát trên, ta cho rằng sự kiện $S(i+1,k,t+k)$
-    chỉ có thể do 1 trong 2 sự kiện rời nhau:
+    được cấu thành như sau: 
     ```math
-        S(i+1,k+1,t+k+1) = S(i+1,k,t+k) union D(i,k+1,t)
+        S(i+1,k+1,t+k+1) = (S(i+1,k,t+k) sect S(i+1,k+1,t+k+1)) union D(i,k+1,t)
     ```
 </details>
     Ta có công thức
