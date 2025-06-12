@@ -278,6 +278,8 @@ Ta bắt đầu với biểu thức trước đó:
 ```
 </pre>
 Nhân $t$ cả 2 vế, rồi lấy tổng theo tất cả các t: 
+<div className='full-x'>
+
 ```math 
     sum_t t P( S(i,N+1,t)) &= 1/2 sum_t t P(S(i,N,t-1)) + 
                               1/2 sum_t t P(S(i-1,N,t-N-2)) \
@@ -293,6 +295,7 @@ f(N)
     & +  1/2 ( sum_t       P(S(i,N,t-1)) + sum_t (N+2) P(S(i-1,N,t-N-2))) \
     &= 1/2 (f(N) + f(N)) + 1/2(P(W(i,N)) + (N+2) * P (W(i-1, N)))
 ```
+</div>
 (Trong đó $W(i,N)$ là sự kiện người $i$ thắng trong trò mà cầu có $N$ hàng kính).
 
 Cuối cùng, lấy tổng theo tất cả i, ta có : 

@@ -249,3 +249,7 @@ details {
 .resizeHandler:hover {
   border: 3px solid hsl(211, 100%, 50%);
 }
+
+.full-x {
+  overflow-x: auto;
+}
