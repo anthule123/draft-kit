@@ -1,0 +1,89 @@
+# Đo chu vi Trái Đất ở thời cổ đại 
+
+Tìm hiểu cách người cổ đại giải quyết 
+vấn đề. 
+
+Nguồn: 
+1. Sách: Alfred S. Posamentier: Vẻ đẹp toán học
+2. Internet:  https://clbvatlysangtaovts.wordpress.com/thuc-nghiem-vat-ly/do-chu-vi-va-ban-kinh-trai-dat/
+
+## Eratotsthenes đã đo chu vi Trái Đất ntn?  
+
+Hàng nghìn năm trước, việc đo đạc Trái Đất là 1 việc 
+rất khó. Nguồn gốc của từ hình học - *geometry* là 
+'đo Trái Đất', (*geo*: đất, trái đất, *metry*: đo đạc). 
+Do đó chúng ta sẽ đi ngược dòng lịch sử và tìm hiểu về 
+ý nghĩa nguyên thủy của bộ môn hình học. Vào khoảng 
+năm 230 TCN, nhà toán học Hy Lạp Eratosthenes là 1 trong 
+những người đầu tiên tìm cách đo chu vi của Trái Đất. 
+Số đo của ông tương đối chính xác, chỉ lệch 2% so 
+với số đo thực tế. Để thực hiện phép đo này, ông
+đã sử dụng quan hệ giữa các góc so le trong của các 
+đường thẳng song song. 
+
+Là thủ thư của thư viện Alexandria, Eratosthenes 
+đã có cơ hội tìm đọc vô số bản ghi chép về các sự 
+kiện theo lịch. Ông phát hiện ra rằng ở thị trấn 
+Syên bên bờ sông Nile (ngày nay là Aswan), vào đúng 
+giữa trưa của 1 ngày nhất định trong năm, Mặt trời 
+ở ngay trên đỉnh đầu của chúng ta. Do đó, ánh nắng 
+có thể rọi tới tận đáy của 1 cái giếng sâu và 1 chiếc 
+cột thẳng đứng song song với ánh nắng sẽ ko đổ bóng. 
+
+Tuy nhiên cùng thời điểm đó, 1 chiếc cột thẳng đứng 
+khác tại tp Alexandria lại có bóng. Eratosthenes chờ 
+đến đúng ngày đó và ông đã đo lại góc tạo bởi chiếc  
+cột ở Alexandria và tia nắng mặt trời đi qua 
+chiếc đỉnh chiếc cột, đổ bóng xuống mặt đất. Ông tìm 
+ra góc $alpha$ này bằng khoảng $7 degree 12$ hay bằng $1/50$
+của $360 degree$. 
+
+import Image from 'next/image'
+import Geometry from './geometry.svg'
+import Geometry2 from './geometry2.svg'
+
+import Map from './map.png'
+
+<div className='ful-x debug'>
+    <Image src={Geometry}
+        width={1000} height={800}
+     alt='geometry'/> 
+</div>
+<div className='ful-x debug'>
+    <Image src={Geometry2}
+        width={1000} height={800}
+     alt='geometry2'/> 
+</div>
+
+Với giả thiết các tia nắng mặt trời chiếu song song, ông thấy rằng góc 
+ở tâm Trái Đất phải bằng góc $alpha$ và cũng bằng 
+xấp xỉ $1/50$ của $360degree$. Vì Syene và Alexandria 
+gần như nằm trên cùng 1 kinh tuyến nên Syene phải nằm 
+trên bán kính song song với các tia nắng mặt trời. 
+Eratosthenes suy luận đc rằng khoảng cách giữa Syene 
+và Alexandria bằng $1/50$ chu vi Trái Đất. Mà khoảng 
+cách giữa Alexandria và Syene đc cho là cách nhau 
+khoảng 5000 stadium. Stadium là 1 đơn vị đo cổ của Hy Lạp,
+1 stadium bằng chiều dài của 1 sân vận động Olympic 
+hoặc svđ Ai Cập, tương đương khoảng 157m. Do đó, ông
+kết luận rằng chu vi Trái Đất khoảng $250,000$ stadium 
+tương đương với khoảng $39,250$ km. Con số này gần 
+đúng với kết quả tính toán ngày nay. Quả là tuyệt vời. 
+
+
+PS: Alexandria và Syene hiện nay: 
+Nguồn: https://www.google.com/maps/dir/Alexandria,+Ai+C%E1%BA%ADp/Syene,+Ai+C%E1%BA%ADp/@14.0345132,27.2637851,3z/data=!4m14!4m13!1m5!1m1!1s0x14f5c49126710fd3:0xb4e0cda629ee6bb9!2m2!1d29.9187387!2d31.2000924!1m5!1m1!1s0x14367b5ab1a30e5f:0xfb109fe337cabccb!2m2!1d32.8998293!2d24.088938!3e4?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D
+
+<div className='ful-x '>
+    <Image src={Map}
+        width={1000} height={800}
+     alt='geometry'/> 
+</div>
+
+
+
+
+
+
+
+
