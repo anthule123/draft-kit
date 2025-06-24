@@ -52,5 +52,6 @@ export function getAllMdxNodes(){
     const ans = mdxStack;
     ans.map((node) => node.dir = node.dir + '.mdx')
     // console.log('ans', ans);
+    ans.sort((a,b) => a?.path.localeCompare(b?.path))
     return ans;
 }
