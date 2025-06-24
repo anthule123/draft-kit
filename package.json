@@ -30,7 +30,6 @@
     "next-mdx-remote": "^5.0.0",
     "p5": "^1.11.3",
     "pdf-lib": "^1.17.1",
-    "playwright": "^1.53.0",
     "puppeteer": "^24.10.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
