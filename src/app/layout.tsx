@@ -18,7 +18,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const tree = getContentTree();
 
   return (
     <html lang="vi">
@@ -32,9 +31,7 @@ export default function RootLayout({
         antialiased`}
       >
         <div>
-            <PanelLayout2
-            tree = {tree}
-            children={children} />
+           {children}
         </div>
         
       </body>

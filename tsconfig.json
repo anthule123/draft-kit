@@ -13,7 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "typeRoots": ["./node_modules/@types", "./types"],
+    "typeRoots": ["./node_modules/@types", "src/types"],
     "plugins": [
       {
         "name": "next"
@@ -29,7 +29,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/no/page.mdx",
-    "types/**/*.d.ts"
+    "src/types/**/*.d.ts"
   ],
   "exclude": ["node_modules"]
 }

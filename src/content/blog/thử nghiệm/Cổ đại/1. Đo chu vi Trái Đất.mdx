@@ -1,3 +1,15 @@
+export const metadata={
+title: 'Đo chu vi Trái Đất', 
+date: '2025-06-22',
+last_modified_at: '2025-06-22',
+tags: ['geometry']
+}
+import Image from 'next/image'
+import Geometry from './geometry.svg'
+import Geometry2 from './geometry2.svg'
+
+import Map2 from './map.jpg'
+
 # Đo chu vi Trái Đất ở thời cổ đại 
 
 Tìm hiểu cách người cổ đại giải quyết 
@@ -38,11 +50,6 @@ chiếc đỉnh chiếc cột, đổ bóng xuống mặt đất. Ông tìm
 ra góc $alpha$ này bằng khoảng $7 degree 12$ hay bằng $1/50$
 của $360 degree$. 
 
-import Image from 'next/image'
-import Geometry from './geometry.svg'
-import Geometry2 from './geometry2.svg'
-
-import Map from './map.png'
 
 <div className='ful-x debug'>
     <Image src={Geometry}
@@ -77,9 +84,9 @@ PS: Alexandria và Syene hiện nay:
 Nguồn: https://www.google.com/maps/dir/Alexandria,+Ai+C%E1%BA%ADp/Syene,+Ai+C%E1%BA%ADp/@14.0345132,27.2637851,3z/data=!4m14!4m13!1m5!1m1!1s0x14f5c49126710fd3:0xb4e0cda629ee6bb9!2m2!1d29.9187387!2d31.2000924!1m5!1m1!1s0x14367b5ab1a30e5f:0xfb109fe337cabccb!2m2!1d32.8998293!2d24.088938!3e4?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D
 
 <div className='ful-x '>
-    <Image src={Map}
+    <Image src={Map2}
         width={1000} height={800}
-     alt='geometry'/> 
+     alt='map'/> 
 </div>
 
 ## Trò chơi: Thực hiện lại thực nghiệm của Eratosthenes 

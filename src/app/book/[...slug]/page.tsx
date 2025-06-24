@@ -1,8 +1,9 @@
 
 
+import { getAllDocPaths2 } from '@/app/blog/[...slug]/getAllDocPaths';
 import style from '@/css/components/article.module.css';
 import path from "path";
-import {getAllDocPaths2} from './getAllDocPaths';
+
 
 type Params = {
     slug: string[]
@@ -33,7 +34,7 @@ export default async function BlogPage(
         const slugPath = decodeURISlugArray.join('/') 
 
        // return <div>{JSON.stringify(props.params)}</div>;
-        const {default: Post, metadata} = await import(`@/content/blog/${slugPath}.mdx`) 
+        const {default: Post} = await import(`@/content/blog/${slugPath}.mdx`) 
         return (<article className={style.article}>
             <Post/>
         </article>)
