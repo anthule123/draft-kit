@@ -5,7 +5,7 @@ import Home from "./Home";
 export default function Page(){
     return (<div>
         <div>Download sách tại: 
-            <Link href="/book.pdf" className=""> Download book</Link>
+            <Link href="/download-book" className=""> Download book</Link>
         </div>
         <Home/>
     
