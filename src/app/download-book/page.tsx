@@ -1,7 +1,7 @@
 'use client'
 import { FormState } from "@/types/form";
-import { useActionState } from "react";
-import bookAction from "./bookAction";
+// import { useActionState } from "react";
+// import bookAction from "./bookAction";
 
 // app/download-book/page.tsx
 export default  function DownloadBookPage() {
@@ -11,18 +11,18 @@ export default  function DownloadBookPage() {
     success: false,
     message: undefined,
   };
-  const [state, formAction] = useActionState(
-    bookAction,
-    initialState,
-  );
+  // const [state, formAction] = useActionState(
+  //   bookAction,
+  //   initialState,
+  // );
   
     return (
       <div style={{ padding: '2rem' }}>
         <h1>Download Doc/Tutorial/Draft Book</h1>
-        <p>Your content compiled into a single downloadable PDF file.</p>
-        <form action={formAction}>
+        <p>Làm thêm tính năng tạo sách.</p>
+        {/* <form action={formAction}>
           <button type='submit'>Tạo sách</button>
-        </form>
+        </form> */}
         <a
         //   href="/blog-book.pdf"
         href='/book.pdf'  
