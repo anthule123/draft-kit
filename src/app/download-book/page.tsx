@@ -1,6 +1,7 @@
 
 
 import { DevOnlyDownload } from "@/app/components/DevOnlyDownload";
+import Link from "next/link";
 
 export default async  function Page() {
 
@@ -13,7 +14,7 @@ export default async  function Page() {
         <p className="">Kết nối tất cả các bài 
           viết lại thành 1 quyển sách.
         </p>
-        <a
+        <Link
         //   href="/blog-book.pdf"
         href='/book.pdf'  
         download
@@ -28,7 +29,7 @@ export default async  function Page() {
           }}
         >
           📘 Download PDF Book
-        </a>
+        </Link>
       </div>
     );
   }
