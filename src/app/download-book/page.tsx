@@ -1,28 +1,18 @@
-'use client'
-import { FormState } from "@/types/form";
-// import { useActionState } from "react";
-// import bookAction from "./bookAction";
 
-// app/download-book/page.tsx
-export default  function DownloadBookPage() {
-  
-  const initialState: FormState = {
-    error: undefined,
-    success: false,
-    message: undefined,
-  };
-  // const [state, formAction] = useActionState(
-  //   bookAction,
-  //   initialState,
-  // );
-  
+
+import { DevOnlyDownload } from "@/app/components/DevOnlyDownload";
+
+export default async  function Page() {
+
+  if(process.env.NODE_ENV !== "production")
+    return <DevOnlyDownload/>
+  else 
     return (
       <div style={{ padding: '2rem' }}>
         <h1>Download Doc/Tutorial/Draft Book</h1>
-        <p>Làm thêm tính năng tạo sách.</p>
-        {/* <form action={formAction}>
-          <button type='submit'>Tạo sách</button>
-        </form> */}
+        <p className="">Kết nối tất cả các bài 
+          viết lại thành 1 quyển sách.
+        </p>
         <a
         //   href="/blog-book.pdf"
         href='/book.pdf'  
