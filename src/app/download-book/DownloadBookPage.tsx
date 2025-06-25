@@ -2,6 +2,7 @@
 import { FormState } from "@/types/form";
 import { useActionState } from "react";
 import bookAction from "./bookAction";
+import Link from "next/link";
 
 // app/download-book/page.tsx
 export default  function DownloadBookPage() {
@@ -18,8 +19,11 @@ export default  function DownloadBookPage() {
   
     return (
       <div style={{ padding: '2rem' }}>
-        <h1>Download Doc/Tutorial/Draft Book</h1>
-        <p>Làm thêm tính năng tạo sách.</p>
+        <Link href="/">
+            <h1>DraftKit</h1>
+          </Link>
+        <h2>Download Doc/Tutorial/Draft Book</h2>
+        <p>Làm thêm tính năng tạo sách (khi dev).</p>
         <form action={formAction}>
           <button type='submit'>Tạo sách</button>
         </form>

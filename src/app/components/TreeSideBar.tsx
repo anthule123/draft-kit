@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link";
 import { TreeNode } from "../blog/types";
 import TreeView from "./TreeView";
 import style from '@/css/components/TreeView.module.css';
@@ -10,9 +11,9 @@ export default function TreeSideBar(
     return (
       <div className={style.bar}>
         <div className={style.header}>
-          <a href="/">
+          <Link href="/">
             <h3>Draft Kit</h3>
-          </a>
+          </Link>
         </div>
         <div className={style.body}>
           <TreeView data={tree} />

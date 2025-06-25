@@ -1,5 +1,5 @@
 import { SiMermaid, SiTypst, SiP5Dotjs} from "react-icons/si";
-import { FaMarkdown, FaFolder, FaPencilAlt, } from "react-icons/fa";
+import { FaMarkdown, FaFolder, FaPencilAlt, FaFilePdf, } from "react-icons/fa";
 import Link from "next/link";
 
 const Features = () => {
@@ -44,7 +44,7 @@ const Features = () => {
       <div className="flex items-center gap-2">
         <SiP5Dotjs size={20} />
         <span>
-          Automatic <strong>P5js</strong> for visualization
+           <strong>P5js</strong> for visualization
         </span>
       </div>
 
@@ -61,6 +61,12 @@ const Features = () => {
           Full support for Vietnamese characters and spaces in folder/file
           names.
         </span>
+      </div> 
+      <div className="flex items-center gap-2">
+          <FaFilePdf size={20} />
+          <span>
+            One-click PDF book export — generate a full-site PDF preserving markdown structure and layout.
+          </span>
       </div>
     </div>
   );

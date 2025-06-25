@@ -10,9 +10,17 @@ export default async  function Page() {
   else 
     return (
       <div style={{ padding: '2rem' }}>
-        <h1>Download Doc/Tutorial/Draft Book</h1>
+        <Link href="/">
+            <h2>Draft Kit</h2>
+          </Link>
+        <h3>Download Doc/Tutorial/Draft Book</h3>
         <p className="">Kết nối tất cả các bài 
-          viết lại thành 1 quyển sách.
+          viết lại thành 1 quyển sách. 
+        </p>
+        <p className="">Cách làm: Mở ở trạng thái 'dev'
+          rồi bấm nút Tạo sách. Còn khi ở trạng thái 
+          production/đọc ở web static sẽ ko hiển thị đc nút 
+          này vì nút này chuyên dùng cho back end.
         </p>
         <Link
         //   href="/blog-book.pdf"
