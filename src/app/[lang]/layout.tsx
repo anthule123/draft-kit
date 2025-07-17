@@ -15,8 +15,20 @@ export const metadata: Metadata = {
   },
 };
 
-export async function generateStaticParams() {
-  return [{ lang: 'vi' }, { lang: 'en' }]
+type Params = {
+  lang: string
+}
+// export async function generateStaticParams() {
+
+//   return [{ lang: 'vi' }, { lang: 'en' }]
+// }
+export async function generateStaticParams(): Promise<Params[]>{
+    
+    const result =  [{ lang: 'vi' }, { lang: 'en' }]
+    if(!result || result.length===0){
+        return [{lang: 'not-found'}];
+    }
+    return result
 }
 export default async function RootLayout({
   children,
