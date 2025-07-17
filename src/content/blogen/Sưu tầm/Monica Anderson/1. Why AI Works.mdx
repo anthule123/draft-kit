@@ -1,0 +1,171 @@
+import Image from 'next/image'
+
+import ai1 from './ai.png'
+import ai2 from './ai2.png'
+import ai3 from './ai3.png'
+import ai4 from './ai4.png'
+import ai5 from './ai5.png'
+import ai6 from './ai6.png'
+import ai7 from './ai7.png'
+import ai8 from './ai8.png'
+
+
+# 1. Why AI Works 
+Nguồn: https://experimental-epistemology.ai/why-ai-works/
+<Image src={ai1} width={500} height={500} alt=''/>
+
+Intelligence = Understanding + Reasoning 
+
+<details>
+    Interest in Artificial Intelligence is exploding, and for good reasons. Computers in cars, phone apps, and on the web can do amazing things that we simply could not do before 2012. What’s going on?
+    
+    This is an attempt to explain the current state of AI to a general audience
+     without using mathematics, computer science, or neuroscience; discussions at
+     these levels would focus on **how** AI works. Here I will discuss
+    this at the level of Epistemology and will try to explain **why** it works.
+    
+    “Epistemology” sounds scary, but it really isn’t. It’s mostly scary because it is unknown; it is not taught in schools anymore. Which is a problem, because we now desperately need this branch of Philosophy to guide our AI development. Epistemology discusses things like Reasoning, Understanding, Learning, Novelty, problem solving in the abstract, how to create Models of the world, etc.
+     These are all concepts one would think would be useful when working with artificial intelligences. But most practitioners enter the field of AI without any exposure to Epistemology which makes their work more mysterious and frustrating than it has to be.
+    
+    I think of Epistemology as the general base for everything related to knowledge and problem solving; Science forms a small special case subset domain where we solve well-formed problems of the kind that Science is best at. In Epistemology outside of Science we are free to productively also discuss pre-scientific problem solving strategies, which is what brains are using most of the time. More later.
+</details>
+
+## Intelligence = Understanding + Reasoning
+
+In his book “Thinking Fast and Slow”, Daniel Kahneman discusses the idea that human minds use two different and complementary processes, two different modes of thinking, which we call Understanding and Reasoning. The idea has been discussed for decades and has been verified using psychological studies and by neuroscience.
+
+<Image src={ai2} width={500} height={500} alt=''/>
+
+<details>
+    “Subconscious Intuitive Understanding” is the full name of the “Fast Thinking”
+     or “System 1” thinking. It is fast because the brain can perform many parts of
+      this task in parallel. The brain spends a lot of effort on this task.
+    
+    “Conscious Logical Reasoning” is the full name of “Slow Thinking” or “System 2” thinking. To many people’s surprise, this is very rarely used in practice. My soundbite for this is “You can make breakfast without Reasoning”. Almost everything we do on a daily basis in our rich mundane reality is done without a need to reason about it. We just repeat whatever worked last time we performed this task; we are experience driven.
+    
+    “Intuitive” means that the system can very quickly “provide solutions” to very complex problems but those solutions may not be correct every time.
+    
+    “Logical” means that answers are always correct as long as input data is correct and sufficient. Which is not true in our rich mundane reality; it can only be true in a mathematically pure “Model” space. If you like Logic, you must also like Models.
+    
+    “Subconscious” means we have no conscious (“introspective”) access
+     to the these processes. You are reading this sentence and you understand it
+     fully but you cannot explain to anyone, including yourself, **how** or **why**
+     you understand it.
+    
+    “Conscious” means we are aware of the thought; we can access it through introspection and we may find reasons to why we believe a certain idea.
+    
+    “Expensive” is on the list because brains spend most of their effort on this Understanding part. We really shouldn’t be surprised that AI now requires very powerful computers. More later.
+    
+    In contrast, Reasoning is “Efficient”. It is most useful when you are stuck in a novel situation where experience and Understanding doesn’t help you. Or perhaps you need to plan ahead, or need to find reasons for why something happened after the fact. It is used at a formal level in the sciences. Reasoning is important, but just rarely needed or used.
+    
+    Finally, Understanding is “Model Free” and Reasoning is “Model Based”. This is likely the most important distinction to people who are implementing intelligent systems since it provides a way to keep the implementation on the correct path when the going gets rough. We cannot discuss these issues quite yet, but if you are curious you can watch the videos at vimeo.com which discuss this distinction at length. Think of their appearance in this table as a kind of foreshadowing.
+    
+    All of this groundwork allows me to state the main point of this blog. We have known for a long time that brains use these two modes. But the AI research community has been spending overmuch effort on the Reasoning part and has been ignoring the Understanding part for sixty years.
+    
+    We had several good reasons for this. Until quite recently, our machines were too small to run any useful sized neural network. And also, we didn’t have a clue about how to implement this Understanding. But that is exactly what changed in 2012 when a group of AI researchers from Toronto effectively demonstrated that Deep Neural Networks could provide a simple kind of shallow and hollow proto-Understanding (well, they didn’t call it that, but I do). I will look just a little into the future,
+    and overstate this just a little, in order to make it more memorable:
+</details>
+
+## Deep Neural Networks can provide Understanding
+
+<details>
+    <Image src={ai3} width={500} height={500} alt=''/>
+    
+    This new phase of AI took decades to develop, but it would never have happened without people like the group led by Geoffrey Hinton at the University of Toronto, who spent 34+ years to develop the Deep Neural Network technology we now call “Deep Learning”. A number of breakthroughs from 1997 to 2006 led to a number of successful demonstrations (including first prizes in AI competitions) in 2012, and we therefore count this year as the birth year of Machine Understanding.
+    
+    To an outsider, it may **look** like an older program or phone app might be “Understanding” whatever the app is doing, but that Understanding really only happened in the mind of the programmer creating the app. The programmer first simplified the problem in their own head by discarding a lot of irrelevant detail using “Programmer’s Understanding”. This simplified mental “Model” of the problem domain could then be explained to a computer in the form of a computer program.
+    
+    What is changing is that computers are now making these Models themselves.
+    
+    <Image src={ai4} width={500} height={500} alt=''/>
+    
+    The first bullet point describes regular programming, including “old style AI” programs. AI has, since 1955, provided many novel and brilliant algorithms that we now use in programs everywhere. But when you contrast old style AI to Understanding systems, the old kind of AI is basically indistinguishable from any other kind of programming we do nowadays.
+    
+    The second bullet point describes the recent developments. Deep Neural Networks are so different from regular programs that we have to acknowledge them as a different computational paradigm. This is why they took almost four decades to develop. And the paradigm, being pre-scientific and Model Free, is difficult to grasp if you received a solid Reductionist and Model Based education; it takes a long time for an established AI practitioner or experienced programmer to switch. People who are just starting out in AI have an easier time assimilating this new paradigm since they haven’t had a full career’s worth of experience and success using old style AI techniques.
+    
+    The amount of work we have to do to get a Deep Neural Network to Understand is surprisingly small, and companies like Google and Syntience are working on eliminating the remaining effort of programming Neural Networks. This is where things will get really weird: when the Deep Neural Network (DNN) Understands enough about the world and about the problem it is faced with, then we no longer need a programmer to acquire this Understanding. Let me elaborate.
+    
+    Programmers are employed to bridge two different domains. They first have to study whatever application domain they are working on. For instance, if they are writing an airline ticket reservation system they will have to learn a lot of detailed information about airlines, airline tickets, flights, luggage, etc. and then know to provide features for unusual cases such as canceled flights. And then the programmer uses their Understanding of the problem domain to explain to a computer how it can Reason about these things… but the programmer cannot make the system Understand, it can only put in a hollow and fragile kind of Reasoning, as a program with many if-then cases. And any misunderstandings the programmer has about the problem domain will become “bugs” in the computer program. Notice the shift in terminology; more later.
+    
+    But today, for certain classes of moderately complex problems, we can use a DNN to automatically learn for itself how to Understand the problem.
+    
+    Which means we no longer need a programmer to Understand the problem.
+    
+    We have delegated our Understanding to a machine.
+    
+    And if you think about that for a minute you will see that that’s exactly what an AI should be doing. It should Understand all kinds of things so that we humans won’t have to.
+    
+    And there are two common situations where this will be a really good idea. One is when we have a problem we cannot Understand ourselves. We know a lot of those, starting with cellular biology.
+    
+    The other common case will be when we Understand the problem well, but making a machine Understand it well enough to get the job done is cheaper and easier than any alternative. Roombas accomplish this level using old style AI methods, but I predict we will one day be flooded with similar but DNN based devices that Understand several aspects of domestic maintenance as well as we do.
+</details>
+
+## Do machines really Understand ?
+
+<Image src={ai1} width={500} height={500} alt=''/>
+
+<details>
+    If we give a picture like this to a DNN trained on images it will identify the important objects in the image and provide the rectangles, called “bounding boxes” as approximations to where the objects are. The text on the right says “Woman in white dress standing with tennis racket two people in green behind her”. Which is not a bad description of the image. It could be used as the basis for a test for English skill level for adult education placement.
+    
+    For all practical purposes, this is Understanding.
+    
+    We had no idea how to make our computers do this before 2012. This is a really big deal. This feat requires not only a new algorithm, it requires a new computational paradigm.
+    
+    An image is, to a computer, a single long sequence of numbers denoting values for red, blue, and green colors in values from 0 to 255; it also knows how wide the image is. How does it get from this very low level representation to knowing that there is a woman with a tennis racket in the image?
+    
+    This is what William Calvin has called “A river that flows uphill”. There are very few mechanisms that can go in this direction, from low levels to
+    high levels. Calvin used the term to describe Evolution, and I can use this quote to describe Understanding.
+    
+    I like to think of Evolution as “Nature’s Understanding” because the phenomena are very similar at several levels. Evolution of species can bring forth advanced species starting from simpler species in the same manner that Understanding is the discovery and re-use of high level concepts in low level input.
+    
+    In contrast, Reasoning proceeds by breaking problems into subproblems and solving those, which is a “flowing downhill” kind of strategy. In mathematics we accept (and many mathematicians only accept this reluctantly) that we need to use induction to move “uphill” in abstractions. And that’s a very limited uphill movement at that. Epistemology allows for much stronger uphill moves. This is known as “jumping to conclusions on scant evidence” and it’s allowed in Epistemology based pre-scientific systems.
+    
+    As an aside, here’s a pretty deep related thought: Nature/Evolution re-uses anything that works. I like to think that Understanding is a spandrel of Evolution itself. Neural Darwinism certainly straddles this gap. Could be coincidence, or the only answer that will work at all. More later.
+    
+</details>
+
+## We Doubled Our AI Toolkit in 2012
+
+We can now use these Deep Neural Networks as **components** in our systems to provide Understanding of certain things like vision, speech, and other problems that require that we discover high level concepts in low level data. The technical (Epistemology level) name for this uphill flowing process is “Reduction” and we’ll be using that term later after we explain what it means.
+
+Let’s look at what the industry is doing with their newfound toys.
+
+<details>
+    <Image src={ai5} width={500} height={500} alt=''/>
+    
+    This is my view of what I think Tesla is doing (based on public sources) in their self-driving (“Autopilot”) cars. Cameras feed Vision Understanding components based on Deep Learning, and Radar feeds to Radar Understanding components. These supply bounding boxes in 2D or 3D with additional information like “There’s a woman with a tennis racket ahead” to a Traffic Reasoning Component that uses regular programming or some old style AI like a rule-based system to actually control
+    the car based on the vision and radar inputs, and the driver’s desires.
+    
+    <Image src={ai6} width={500} height={500} alt=''/>
+    But this is not the only possible configuration. George Hotz at Comma.ai, a team at nVidia corporation, and the DeepTesla class at MIT are using a
+    simpler architecture with just a neural network that implements lane following and other simple driving behaviors directly in one single Deep Neural Network. There is room for improvement, but they are a big step in the direction we want to move in.
+    
+    <Image src={ai7} width={500} height={500} alt=''/>
+    
+    Future automotive systems will likely integrate everything about driving into one single neural network, or something that effectively behaves as one. Vision, traffic, the car itself including various functionality like windscreen wipers, lights, and entertainment, how to drive in a safe and polite manner, and to understand also the driver’s (or “car owner’s”) desires. And if we’ve gotten that far, then it is a given that we will have speech input and output so that the driver can have a conversation with the car while driving, and can chastise it in case it does something wrong.
+    
+    We are nowhere close to this today. But after a DNN breakthrough or two, who knows how quickly these kinds of systems become available. We can already see an increasing stream of new features built using Understanding components.
+</details>
+
+<Image src={ai8} width={500} height={500} alt=''/>
+
+This article (and the next) are expansions of a talk given at BIL conference on June 10th 2017 in San Francisco.
+
+More at https://vimeo.com/showcase/5329344
+
+A decade ago I created http://artificial-intuition.com . I now have a lot more to say, but I need to split this meme-package into digestible chunks; this takes a lot of effort to get right. If you liked this article and would like to see more like it then you can support my writing and my research in many ways, small to large:
+
+1. Click on the “like” heart below to increase visibility of this article.
+2. Subscribe to my posts here, on Facebook, Twitter, YouTube, and Vimeo.
+3. Share my posts with someone who might want to invest in Syntience Inc. or might be otherwise interested in my research on a novel Language Understanding technology called Organic Learning. More later.
+4. I do not receive external funding from any investors for this research. You can support my research and writing directly at http://artificial-intuition.com/donate.html
+
+
+
+
+
+
+
+
+
+

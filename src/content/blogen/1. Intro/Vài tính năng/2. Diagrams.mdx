@@ -1,0 +1,82 @@
+
+
+# Diagrams with Mermaid
+## Graph
+
+<div className='dual_layout'>
+    <div>
+        ```
+            graph TD
+                A((Biến A)) --> B{Điều kiện}
+                B -->|Đúng| C[Thực thi 1]
+                B -->|Sai| D[Thực thi 2]
+                C --> E((Kết thúc))
+                D --> E
+        ```
+    </div>
+
+    <div>
+    ```mermaid
+    graph TD
+        A((Biến A)) --> B{Điều kiện}
+        B -->|Đúng| C[Thực thi 1]
+        B -->|Sai| D[Thực thi 2]
+        C --> E((Kết thúc))
+        D --> E
+    ```
+    </div>
+</div>
+
+## Flowchart
+
+<div className='dual_layout'>
+    <div>
+        ```
+            graph TD
+                A[Bắt đầu] --> B[Bước 1]
+                B --> C[Bước 2]
+                C --> D[Kết thúc]
+        ```
+    </div>
+
+    <div>
+    ```mermaid
+    graph TD
+        A[Bắt đầu] --> B[Bước 1]
+        B --> C[Bước 2]
+        C --> D[Kết thúc]
+    ```
+    </div>
+</div>
+
+## Journey
+
+<div className=''>
+    <div>
+        ```
+            journey
+            title My working day
+            section Go to work
+                Make tea: 5: Me
+                Go upstairs: 3: Me
+                Do work: 1: Me, Cat
+            section Go home
+                Go downstairs: 5: Me
+                Sit down: 5: Me
+                ```
+    </div>
+
+    <div>
+    ```mermaid
+        journey
+        title My working day
+        section Go to work
+            Make tea: 5: Me
+            Go upstairs: 3: Me
+            Do work: 1: Me, Cat
+        section Go home
+            Go downstairs: 5: Me
+            Sit down: 5: Me
+    ```
+    </div>
+</div>

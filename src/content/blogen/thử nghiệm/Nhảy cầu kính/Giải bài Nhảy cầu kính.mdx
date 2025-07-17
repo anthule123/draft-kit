@@ -1,0 +1,367 @@
+export const metadata = {
+    title: 'Giải bài toán nhảy cầu kính',
+    date: '2025-06-2',
+    last_modified_at: '2025-06-21',
+    tags: ['puzzle', 'probability']
+}
+
+# Giải bài toán nhảy cầu kính 
+
+Link câu đố nhảy cầu kính: [https://quanhoang-pm.github.io/puzzle/glass-bridge-in-squid-game/](https://quanhoang-pm.github.io/puzzle/glass-bridge-in-squid-game/)
+
+Về mặt sơ lược, đầu tiên mình tạo ra mô hình để mô tả bài toán, 
+sau đó lập mô hình sự kiện xác suất để giải bài toán, sau đó ta sẽ 
+có công thức đệ quy. Sau đó từ công thức đệ quy, (bằng 1 số thủ thuật)
+ta có thể tìm ra công thức tổng quát. 
+
+## Mô hình bài toán 
+
+### 1. Trạng thái của trò chơi 
+<details>
+    Trạng thái của trò chơi là 1 tập hợp chứa các phần tử sau:
+    <pre>
+    1. Thời gian (tính bằng số giây)
+    2. id của người đang ở trên cầu (đánh số từ $1$)
+    3. Số người chơi ban đầu
+    4. Cây cầu:
+        - Số hàng kính ($n$)
+        - Vị trí của người đang chơi
+        - Người đang ở trên cầu đang an toàn
+        (ở tấm kính cường lực) hay nguy hiểm (ở tấm kính thường)
+    </pre>
+    Ta mô tả 1 lần chơi = 1 danh sách các trạng thái của trò chơi từ trạng thái khởi tạo đến trạng
+    thái kết thúc
+    <pre>
+    Trạng thái khởi tạo
+    1. Thời gian = 0
+    2. Chưa có người ở trên cầu
+    3. Số người chơi ban đầu : M
+    4. Cây cầu (có n hàng kính, chưa có người chơi)
+    </pre>
+    Trạng thái kết thúc :
+    <pre>
+    1. Thời gian = t
+    2. Có 1 người ở trên cầu
+    3. Số người chơi ban đầu: M
+    4. Cây cầu:
+        - Có n hàng kính
+        - Người chơi đang ở vị trí n
+        - Vị trí của người chơi là vị trí an toàn
+    </pre>
+</details>
+### 2. Không gian xác suất 
+Không gian xác suất ở đây là tất cả các lần chơi có thể xảy ra. 
+Mỗi lần chơi lại có 1 độ đo xác suất, tổng các độ đo xác suất là 1. 
+
+### 3. Sự kiện 
+<details>
+    Phần khó nhất của việc mô hình bài toán có lẽ là phần xây dựng sự kiện.
+    
+    Bây giờ ta mô tả sự kiện $S(i,k,t)$ (S là safe) là như sau:
+    <pre>
+        - Người có id i đang ở trên cầu
+        - Người đó đang **an toàn**
+        - Người đó đang ở vị trí k
+        - Thời gian là t (giây)
+        - Trong thời gian T = 0,1,2,...(t-1) chưa
+        từng có ai an toàn ở vị trí k (nhấn mạnh là an toàn
+        vì trước đó có thể có người đã ở vị trí k 1 cách nguy hiểm)
+    </pre>
+    
+    Tiếp theo ta mô tả sự kiện $D(i,k,t)$ (D là dangerous) như sau:
+    <pre>
+        - Người có id i đang ở trên cầu
+        - Người đó đang **nguy hiểm**
+        - Người đó đang ở vị trí k
+        - Thời gian là t (giây)
+        - Trong thời gian T = 0,1,2,...(t-1) chưa
+        từng có ai an toàn ở vị trí k (nhấn mạnh là an toàn
+        vì trước đó có thể có người đã ở vị trí k 1 cách nguy hiểm)
+    </pre>
+    Ta gọi P(A) = xác suất của sự kiện A.
+    Dựa theo luật chơi, ta thấy ta cần tìm những giá trị sau:
+    
+    1. Xác suất để người có id $i$ giành chiến thắng với
+    $i$ từ $1$ đến $N+1$. Thì xác suất để người id $i$
+    giành chiến thắng là
+    ```math
+            P(W_i) = sum_t P(S(i,N,t))
+    ```
+    (Ta gọi $W(i)$ là sự kiện i dành chiến thắng).
+    
+    2. Trung bình 1 lần chơi hết bao nhiêu thời gian
+    ```math
+            E = sum_t t P(S(i,N,t))
+    ```
+</details>
+
+## 1. Giải bài toán 1
+Để giải bài toán xác suất này, ta đi tìm công thức đệ quy 
+sau đó dùng pp quy nạp ta tìm ra công thức tổng quát. 
+
+### Công thức đệ quy 
+<details>
+    Ta thấy khi $i=1$ thì
+    ```math
+        P(S(1, 0, 0)) &= 1 \
+        p(S(1, k, k)) &= frac(1,2) p(S(1,k-1,k-1)) = 1/2^k "với " k=1,...,N \
+    ```
+    Ta có thể làm vậy dễ dàng vì xác suất chọn mỗi loại kính
+    đều bằng nhau và bằng $1/2$.
+    
+    Ta thấy sự kiện $S(i,k,t)$ có liên quan đến
+    sự kiện :
+    - $S(i,k+1,t+1)$ : Nếu sự kiện $S(i,k,t)$ xảy ra thì
+    người i sẽ có quyền chọn lựa hàng kính tiếp theo,
+    dẫn đến
+    $S(i,k+1,t+1)$ sẽ xảy ra nếu chọn đc lựa chọn an toàn (là
+    cái kính cường lực), $D(i,k+1,t+1)$ sẽ xảy ra nếu chọn
+    phải kính vỡ.
+    
+    Ta xem xét bước chuyển khi người $i$ rơi vào trạng thái
+    nguy hiểm $D(i,k,t)$, khi đó 'chưa từng có ai an toàn ở vị trí k'
+    nên ta dùng chiến lược để cho người tiếp theo là $i+1$
+    sẽ học hỏi người $i$ và là người đầu tiên an toàn ở
+    vị trí $k$, dẫn đến trạng thái $S(i+1,k,t+k)$.
+    
+    Tổng hợp từ 2 quan sát trên, ta cho rằng sự kiện $S(i+1,k,t+k)$
+    được cấu thành như sau: 
+    ```math
+        S(i+1,k+1,t+k+1) = (S(i+1,k,t+k) sect S(i+1,k+1,t+k+1)) union D(i,k+1,t)
+    ```
+</details>
+    Ta có công thức
+    <pre>
+    ```math
+        P( S(i+1,k+1,t+k+1)) &= 1/2 P(S(i+1,k,t+k)) + P(D(i,k+1,t)) \
+        P( S(i+1,k+1,t+k+1)) &= 1/2 P(S(i+1,k,t+k)) + 1/2 P(S(i,k,t-1))
+    ```
+    [^1].
+    </pre>
+
+
+
+### Công thức tổng quát 
+
+Ở phần gợi ý, ta đã được gợi ý rằng dùng quy nạp 
+chứng minh $n+1$ 
+người đầu tiên có xác suất giành chiến thắng là giá trị chuẩn hóa của dòng thứ $n+1$
+ trong tam giác Pascal. Nên ta làm thử 3 bước quy nạp: 
+<details>
+    
+    #### B1. Trường hợp cơ sở
+    Với $n=1$, ta có
+    ```math
+            P(W_1) &= 1/2 \
+            P(W_2) &= 1/2
+    ```
+    #### B2. Giả thiết quy nạp
+    Giả thuyết quy nạp:
+    <pre>
+    Với $n=1,...,N$, ta có
+    ```math
+            P(W_i) = sum_t P(S(i,n,t)) = binom(n, i-1)/ 2^n " với " i=1,...,n+1
+    ```
+    </pre>
+    Ta thấy trường hợp cơ sở n=1 thì giả thuyết đúng.
+    
+    Ta giả sử giả thuyết đúng với $n=1,...,N$, ta sẽ chứng
+    minh giả thuyết đúng với $n=N+1$.
+    <pre>
+    ```math
+        P( S(i,N+1,t)) &= 1/2 P(S(i,N,t-1)) + 1/2 P(S(i-1,N,t-N-2))
+    ```
+    </pre>
+    Sau đó ta lấy tổng tất cả t của 2 vế, ta có
+    ```math
+     sum_t P( S(i,N+1,t)) &= 1/2 sum_t P(S(i,N,t-1)) + 1/2 sum_t P(S(i-1,N,t-N-2))\
+      &= 1/2 binom(N, i)/ 2^N + 1/2 binom(N,i-1)/2^N  \
+      &= 1/2^(N+1) binom(N+1,i)
+    ```
+</details>
+Như vậy ra ta đã chứng minh được giả thuyết đúng với $n=N+1$.  
+#### B3. Kết luận 
+Ta có được công thức tổng quát của xác suất mỗi người chiến thắng.  
+<pre> 
+```math 
+        P(W_i) = sum_t P(S(i,n,t)) = binom(n, i-1)/ 2^n " với " i=1,...,n+1
+```
+</pre>
+Như vậy người có xác suất thắng cao nhất là $floor(n/2)$.
+
+## 2. Tính thời gian trung bình 1 lượt chơi 
+
+Mò công thức tổng quát: 
+
+Code python,
+<details >
+```py 
+import math
+N = 6
+
+# Solve by dp 
+# 1. Base  
+p = dict()
+
+for i in range(0, N + 1):
+
+    p[(1,i,i)] = math.pow(2, N-i)
+print(p) 
+
+for i in range(1,N+1):
+    for k in range(0,N+1):
+        for t in range(0, i*N+2):
+           
+            a = p[(i,k,t-1)] if ((i,k,t-1) in p) else 0.0
+            b = p[(i+1, k, t+k)] if ((i+1, k, t+k) in p) else 0.0
+            p[(i+1, k+1, t+k+1)] = a/2.0 + b/2.0
+
+print(p)
+# solve prob to win
+
+win = dict() 
+for i in range(1,N+2):
+    win[i] = 0
+    for t in range(1, (N+1)**2+2):
+        a =  p[(i, N, t)] if (i,N,t) in p else 0 
+        win[i] = win[i] + a
+print(win)
+# 
+# Tính thời gian end game 
+time_end = 0 
+for i in range(1,N+2):
+    sum = 0 
+    for t in range(1, (N+1)**2+2):
+        a =  p[(i, N, t)] * t if (i,N,t) in p else 0 
+        sum +=a 
+    time_end += sum 
+print(time_end/math.pow(2, N))
+
+
+```
+</details>
+ tính ra thời gian trung bình cho vài trường hợp nhỏ của N 
+
+| n        | Thời gian trung bình 1 lần chơi  f(n)| Hiệu $f(n)-f(n-1)$ |
+|----------|----------| ---- |
+| 1        | $1.5$  | 
+| 2        | $3.5$   | 2 |
+| 3 | 6 | 2.5 |
+| 4 | 9 | 3 |
+|5 | 12.5 | 3.5 | 
+|6 | 16.5 | 4 |
+
+Ta thấy hiệu của các hạng tử trong dãy là dãy tăng dần 
+đều ($g(n) = g(n-1) + 1/2  $). Từ đó ta tìm được 
+công thức tổng quát của $g(n)$ 
+```math 
+    g(n) = n/2 + 1 
+``` 
+Sau đó, suy ra công thức tổng quát của $f(n)$ là 1 hàm 
+đa thức bậc 2. 
+```math 
+    f(n) = f(n-1) + n/2 + 1 \
+   => f(n) = n(n+5)/4
+``` 
+
+Quay lại, lời giải lí thuyết, ta dùng quy nạp. 
+#### TH cơ sở 
+ ta có $f(1)=3/2$ và $f(2)=7/2$.
+#### GT quy nạp
+Giả thuyết quy nạp: 
+<pre>
+Với mọi n = 2,...,N, ta có 
+ ```math 
+  f(n) = f(n-1) + n/2 + 1 
+```
+</pre>
+
+Ta sẽ chứng minh giả thuyết đúng với n = N + 1. 
+Ta bắt đầu với biểu thức trước đó: 
+
+<pre>
+```math 
+    P( S(i,N+1,t)) &= 1/2 P(S(i,N,t-1)) + 1/2 P(S(i-1,N,t-N-2))
+```
+</pre>
+Nhân $t$ cả 2 vế, rồi lấy tổng theo tất cả các t: 
+<div className='full-x'>
+
+```math 
+    sum_t t P( S(i,N+1,t)) &= 1/2 sum_t t P(S(i,N,t-1)) + 
+                              1/2 sum_t t P(S(i-1,N,t-N-2)) \
+```
+Ở mỗi t của vế phải, tách t ra để cố gắng lấy đc cái hàm 
+f(N) 
+```math 
+    sum_t t P( S(i,N+1,t)) &= 1/2 (sum_t (t-1) P(S(i,N,t-1)) + 
+                                   sum_t       P(S(i,N,t-1)))  \ 
+                            & + 1/2 (sum_t (t-N-2) P(S(i-1,N,t-N-2))
+                                  + sum_t (N+2) P(S(i-1,N,t-N-2)))\ 
+    &= 1/2 (sum_t (t-1) P(S(i,N,t-1)) + 1/2 sum_t (t-N-2) P(S(i-1,N,t-N-2))) \
+    & +  1/2 ( sum_t       P(S(i,N,t-1)) + sum_t (N+2) P(S(i-1,N,t-N-2))) \
+    &= 1/2 (f(N) + f(N)) + 1/2(P(W(i,N)) + (N+2) * P (W(i-1, N)))
+```
+</div>
+(Trong đó $W(i,N)$ là sự kiện người $i$ thắng trong trò mà cầu có $N$ hàng kính).
+
+Cuối cùng, lấy tổng theo tất cả i, ta có : 
+```math 
+    f(N+1) = f(N) + (N+1)/2 + 1
+```
+
+Như vậy công thức đệ quy đã được chứng minh. 
+Từ đó, đặt ẩn phụ A,B,C
+
+```math 
+    f(n) =  A n^2 + B n + C
+```  
+Tính ra A,B,C được: 
+```math 
+    f(n) = n(n+5)/4
+```  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

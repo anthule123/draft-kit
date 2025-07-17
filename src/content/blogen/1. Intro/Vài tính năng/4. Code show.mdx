@@ -1,0 +1,81 @@
+
+# Show code
+
+## 1. Chèn code với ```
+
+Vd typescript:
+
+```ts
+const a = 2
+let b = a *3
+```
+(Sử dụng rehypeShiki)
+```
+npm i @shikijs/rehype
+```
+
+//next.config.mjs
+```tsx
+import createMDX from "@next/mdx";
+
+import rehypeTypst from "@myriaddreamin/rehype-typst";
+import remarkMermaid from "remark-mermaidjs";
+
+import rehypeShiki from "@shikijs/rehype";
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  trailingSlash: true,
+  assetPrefix: process.env.NODE_ENV === "production" ? "/roadkit" : "",
+
+  experimental: {
+    esmExternals: true, // Enable ESM support
+  },
+};
+if (process.env.NODE_ENV === "production") {
+  nextConfig.output = "export";
+  nextConfig.images = { unoptimized: true };
+  nextConfig.basePath = "/roadkit";
+}
+
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkMermaid],
+    rehypePlugins: [
+      rehypeTypst,
+      [
+        rehypeShiki,
+        {
+          theme: "dark-plus",
+        },
+      ],
+    ],
+  },
+});
+
+export default withMDX(nextConfig);
+```
+## 2. Thêm element details để đóng mở code
+
+- Mở .vscode/settings.json
+
+```json
+{
+   "emmet.includeLanguages": {
+    "markdown": "html",
+    "mdx": "html"
+  },
+}
+```
+
+Là có thể sử dụng html element và gợi ý import component
+trong mdx.
+
+<details>
+<summary>Code Hello.py</summary>
+```py
+   print('hello')
+```
+</details>
