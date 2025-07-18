@@ -13,9 +13,23 @@ export default function TreeView({
 }: {data: TreeNode,
 }){
     const pathname = usePathname();
-    const isPathChild = decodeURI(pathname).startsWith(decodeURI(data.path)) 
+    // Strip language prefix
+    const pathWithoutLang = (() => {
+        const segments = decodeURI(pathname).split('/');
+        const supportedLangs = ['vi', 'en'];
+      
+        // segments[0] is "", segments[1] might be "en" or "vi"
+        if (supportedLangs.includes(segments[1])) {
+          return '/' + segments.slice(2).join('/');
+        }
+      
+        // Return the original path if no language prefix
+        return decodeURI(pathname);
+      })();
+
+    const isPathChild = pathWithoutLang.startsWith(decodeURI(data.path)) 
     const [isOpen, setIsOpen] = useState(isPathChild); 
-    const isActive = decodeURI(pathname).replace(/\/$/, "")
+    const isActive = pathWithoutLang.replace(/\/$/, "")
                      === decodeURI(data.path).replace(/\/$/, "")
                     && data.isMdxFile;
     // console.log({
