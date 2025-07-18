@@ -1,6 +1,5 @@
 a,
-button,
-div, details {
+button, details {
   font-family: var(--font-inter);
 }
 
@@ -17,6 +16,12 @@ p,
 ul,
 li, span {
   font-family: var(--font-garamond);
+}
+
+details a, details {
+  font-family: var(--font-garamond);
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 h1 {

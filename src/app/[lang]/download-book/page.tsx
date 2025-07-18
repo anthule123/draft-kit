@@ -23,7 +23,7 @@ export default async  function Page() {
           production/đọc ở web static sẽ ko hiển thị đc nút 
           này vì nút này chuyên dùng cho back end.
         </p>
-        <ILink
+        <Link
         //   href="/blog-book.pdf"
         href='/book.pdf'  
         download
@@ -38,7 +38,7 @@ export default async  function Page() {
           }}
         >
           📘 Download PDF Book
-        </ILink>
+        </Link>
       </div>
     );
   }

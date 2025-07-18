@@ -38,7 +38,7 @@
 @media (min-width: 869px) {
   .container {
     display: grid;
-    grid-template-columns: auto 300px;
+    grid-template-columns: auto auto;
   }
 }
 

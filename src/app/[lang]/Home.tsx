@@ -25,7 +25,8 @@ export default async function Home(){
     return (
         <div className="">
             <LanguageSwitcher />
-            Có { cards.length} bài viết. 
+            Tải sách tại <ILink href='download-book'> Link tải sách</ILink>
+            <div>Có { cards.length} bài viết.</div> 
             {cards.map((card, index) => (
                 <div className="card" key = {`${index}`}>
                     <ILink href= {card.path}><h3>{card.metadata?.title}</h3>

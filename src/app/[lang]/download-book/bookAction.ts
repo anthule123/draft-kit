@@ -6,6 +6,8 @@ import puppeteer from 'puppeteer'
 import { FormState } from '@/types/form';
 import {PDFDocument, rgb, StandardFonts} from 'pdf-lib'
 import { getAllMdxNodes } from '../lib/getAllMdxNodes';
+import Cookies from 'js-cookie';
+
 export default async function bookAction(
   prevState: FormState,
   formData: FormData,
@@ -59,8 +61,9 @@ export async function generatePdfBook() {
   const filePaths = nodes.map((node: any) => (node.dir));
   let urls = nodes.map((node: any) => {
   let path = decodeURIComponent(node.path);
-  path = path.replace('blog', 'book')
-  return `http://localhost:3102${path}`})
+  path = path.replace('blog', 'book') 
+  const lang = Cookies.get('NEXT_LOCALE') || 'vi'; // fallback mặc định
+  return `http://localhost:3102/${lang}/${path}`})
   // urls = ['http://localhost:3102/blog/N%E1%BB%91/']
   const sections = await Promise.all(
     urls.map((url: any) => 

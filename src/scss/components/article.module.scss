@@ -41,7 +41,7 @@
     @include display.center;
     @include adapts.desktop{
         display: grid; 
-        grid-template-columns: auto 300px;
+        grid-template-columns: auto auto;
     }
 }
 .toc{
