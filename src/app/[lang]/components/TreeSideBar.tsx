@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TreeNode } from "../blog/types";
 import TreeView from "./TreeView";
 import style from '@/css/components/TreeView.module.css';
+import ILink from "./ILink";
 
 
 export default function TreeSideBar(
@@ -11,9 +12,10 @@ export default function TreeSideBar(
     return (
       <div className={style.bar}>
         <div className={style.header}>
-          <Link href="/">
+          <ILink href="/">
             <h3>Draft Kit</h3>
-          </Link>
+          </ILink>
+          
         </div>
         <div className={style.body}>
           <TreeView data={tree} />

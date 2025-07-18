@@ -6,6 +6,7 @@ import {  useState } from "react";
 import style from '@/css/components/TreeView.module.css';
 import { TreeNode } from "../blog/types";
 import { GREEN } from "../blog/constant";
+import ILink from "./ILink";
 
 export default function TreeView({
     data, 
@@ -27,8 +28,8 @@ export default function TreeView({
     }
     if (data.isMdxFile) return (
         <div className={`${isActive? `${style.active}`: '' } ${style.item}`}>
-            <Link href = {data.path}
-> {data.name} </Link>
+            <ILink href = {data.path}
+> {data.name} </ILink>
         </div>
     )
     if(data.name==='') return (

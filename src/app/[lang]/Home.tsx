@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllMdxNodes } from "./lib/getAllMdxNodes";
 import LanguageSwitcher from "./components/LanguageSwitcher";
+import ILink from "./components/ILink";
 
 type Card = {
     metadata: any,
@@ -27,7 +28,8 @@ export default async function Home(){
             Có { cards.length} bài viết. 
             {cards.map((card, index) => (
                 <div className="card" key = {`${index}`}>
-                    <Link href= {card.path}><h3>{card.metadata?.title}</h3></Link>
+                    <ILink href= {card.path}><h3>{card.metadata?.title}</h3>
+                    </ILink>
                     {card.metadata?.date}
 
                 </div>

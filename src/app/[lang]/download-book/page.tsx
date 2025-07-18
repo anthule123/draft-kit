@@ -2,6 +2,7 @@
 
 import { DevOnlyDownload } from "@/app/[lang]/components/DevOnlyDownload";
 import Link from "next/link";
+import ILink from "../components/ILink";
 
 export default async  function Page() {
 
@@ -10,9 +11,9 @@ export default async  function Page() {
   else 
     return (
       <div style={{ padding: '2rem' }}>
-        <Link href="/">
+        <ILink href="/">
             <h2>Draft Kit</h2>
-          </Link>
+          </ILink>
         <h3>Download Doc/Tutorial/Draft Book</h3>
         <p className="">Kết nối tất cả các bài 
           viết lại thành 1 quyển sách. 
@@ -22,7 +23,7 @@ export default async  function Page() {
           production/đọc ở web static sẽ ko hiển thị đc nút 
           này vì nút này chuyên dùng cho back end.
         </p>
-        <Link
+        <ILink
         //   href="/blog-book.pdf"
         href='/book.pdf'  
         download
@@ -37,7 +38,7 @@ export default async  function Page() {
           }}
         >
           📘 Download PDF Book
-        </Link>
+        </ILink>
       </div>
     );
   }

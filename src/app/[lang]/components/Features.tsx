@@ -1,6 +1,7 @@
 import { SiMermaid, SiTypst, SiP5Dotjs} from "react-icons/si";
 import { FaMarkdown, FaFolder, FaPencilAlt, FaFilePdf, } from "react-icons/fa";
 import Link from "next/link";
+import ILink from "./ILink";
 
 const Features = () => {
   return (
@@ -9,9 +10,9 @@ const Features = () => {
         <FaMarkdown size={20} />
         <span>
           <strong>
-            <Link href="/blog/1.%20Intro/1.%20Markdown" target="_blank">
+            <ILink href="/blog/1.%20Intro/1.%20Markdown" target="_blank">
               Markdown
-            </Link>{" "}
+            </ILink>{" "}
           </strong>
           for text formatting
         </span>
@@ -21,9 +22,9 @@ const Features = () => {
         <SiMermaid size={20} />
         <span>
           <strong>
-            <Link href="/blog/1.%20Intro/1.%20Markdown" target="_blank">
+            <ILink href="/blog/1.%20Intro/1.%20Markdown" target="_blank">
               Mermaid
-            </Link>
+            </ILink>
           </strong>{" "}
           for elegant diagrams
         </span>
@@ -33,9 +34,9 @@ const Features = () => {
         <SiTypst size={20} />
         <span>
           <strong>
-            <Link href="/blog/1.%20Intro/1.%20Markdown" target="_blank">
+            <ILink href="/blog/1.%20Intro/1.%20Markdown" target="_blank">
               Typst
-            </Link>{" "}
+            </ILink>{" "}
           </strong>
           for  mathematics
         </span>

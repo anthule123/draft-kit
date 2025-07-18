@@ -3,6 +3,7 @@ import { FormState } from "@/types/form";
 import { useActionState } from "react";
 import bookAction from "./bookAction";
 import Link from "next/link";
+import ILink from "../components/ILink";
 
 // app/download-book/page.tsx
 export default  function DownloadBookPage() {
@@ -19,9 +20,9 @@ export default  function DownloadBookPage() {
   
     return (
       <div style={{ padding: '2rem' }}>
-        <Link href="/">
+        <ILink href="/">
             <h1>DraftKit</h1>
-          </Link>
+          </ILink>
         <h2>Download Doc/Tutorial/Draft Book</h2>
         <p>Làm thêm tính năng tạo sách (khi dev).</p>
         <form action={formAction}>
