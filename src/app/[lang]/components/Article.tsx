@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState, ReactNode } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import style from '@/css/components/article.module.css';
+import GiscusComments from './GiscusComments';
 
 type Heading = {
   id: string;
@@ -38,23 +39,26 @@ const Article: React.FC<ArticleProps> = ({ children, className, ...props }) => {
   }, [children]); // đảm bảo cập nhật khi nội dung thay đổi
 
   return (
-    <div className={`$ ${style.container}`}>
-      <LanguageSwitcher />
-      <article ref={articleRef} className={className} {...props}>
-        {children}
-      </article>
-      <nav className={style.toc}>
-        <h3>Mục lục bài viết</h3>
-        <ul>
-          {headings.map(({ id, text, level }) => (
-            <li key={id} style={{ marginLeft: (level - 1) * 20 }}>
-              <a href={`#${id}`}>{text}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
+    <div>
+      <div className={`$ ${style.container}`}>
+        <LanguageSwitcher />
+        <article ref={articleRef} className={className} {...props}>
+          {children}
+        </article>
+       
+        <nav className={style.toc}>
+          <h3>Mục lục bài viết</h3>
+          <ul>
+            {headings.map(({ id, text, level }) => (
+              <li key={id} style={{ marginLeft: (level - 1) * 20 }}>
+                <a href={`#${id}`}>{text}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       
+      </div>
+      <GiscusComments />
     </div>
   );
 };
