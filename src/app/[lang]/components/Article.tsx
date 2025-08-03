@@ -48,10 +48,11 @@ const Article: React.FC<ArticleProps> = ({ children, className, ...props }) => {
                     <MyArticle/>
                     </Panel>
                   <PanelResizeHandle
-                     className={`resizeHandler ${style.toc}`}
+                     className={`resizeHandler
+                       ${style.tocShow}`}
                  />
-                <Panel className={style.toc}>
-                {myToc(headings)}
+                <Panel className={`${style.tocContainer} ${style.tocShow}`}>
+                <div className={style.toc}>{myToc(headings)}</div>
                 </Panel>
          </PanelGroup>
          <GiscusComments />
@@ -68,7 +69,7 @@ export function myToc(headings: Heading[]){
   <h3>Mục lục bài viết</h3>
   <ul>
     {headings.map(({ id, text, level }) => (
-      <li key={id} style={{ marginLeft: (level - 1) * 20 }}>
+      <li key={id} style={{ marginLeft: (level-3) * 10 }}>
         <a href={`#${id}`}>{text}</a>
       </li>
     ))}

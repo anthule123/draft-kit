@@ -42,8 +42,16 @@
   }
 }
 
+.tocContainer {
+  position: relative;
+}
+
+.toc {
+  position: fixed;
+}
+
 @media (max-width: 868px) {
-  .toc {
+  .tocShow {
     display: none;
   }
 }
