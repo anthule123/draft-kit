@@ -1,5 +1,16 @@
 {
     "products": {
       "cart": "Thêm vào giỏ hàng"
+    },
+    "language": {
+      "notice": "Trang web đang ở tiếng Việt."
+    },
+    "book": {
+      "download": "Tải sách tại",
+      "link-name": "Link tải sách"
+    },
+    "intro": {
+      "has": "Có", 
+      "articles": "bài viết"
     }
   }

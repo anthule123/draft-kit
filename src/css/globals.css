@@ -271,3 +271,9 @@ details {
   top: 10px;
   z-index: 3;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

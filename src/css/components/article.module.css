@@ -42,12 +42,6 @@
   }
 }
 
-.toc {
-  max-width: 300px;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-}
 @media (max-width: 868px) {
   .toc {
     display: none;

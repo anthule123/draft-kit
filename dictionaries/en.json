@@ -1,5 +1,16 @@
 {
     "products": {
       "cart": "Add to Cart"
+    },
+    "language": {
+      "notice": "This website is now in English."
+    },
+    "book": {
+      "download": "Download books from",
+      "link-name": "Link for Downloading"
+    },
+    "intro": {
+      "has": "There is", 
+      "articles": "articles"
     }
   }

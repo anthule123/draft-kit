@@ -2,12 +2,17 @@ import Link from "next/link";
 import { getAllMdxNodes } from "./lib/getAllMdxNodes";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import ILink from "./components/ILink";
+import { getDictionary } from "./dictionaries";
 
 type Card = {
     metadata: any,
     path: string
 }
-export default async function Home(){
+export default async function Home({
+    params,
+  }: {
+    params: Promise<{ lang: 'vi' |'en' }>
+  }) {
     const nodes = getAllMdxNodes();
     const cards = [];
     for (const node of nodes){
@@ -22,11 +27,13 @@ export default async function Home(){
     }
     cards.sort((a,b) => b.metadata?.date.localeCompare(a.metadata?.date))
     
+    const { lang } = await params
+    const dict = await getDictionary(lang) 
     return (
         <div className="">
             <LanguageSwitcher />
-            Tải sách tại <ILink href='download-book'> Link tải sách</ILink>
-            <div>Có { cards.length} bài viết.</div> 
+           {dict.book.download} <ILink href='download-book'> {dict.book["link-name"]}.</ILink>
+            <div>{dict.intro.has} { cards.length} {dict.intro.articles}.</div> 
             {cards.map((card, index) => (
                 <div className="card" key = {`${index}`}>
                     <ILink href= {card.path}><h3>{card.metadata?.title}</h3>

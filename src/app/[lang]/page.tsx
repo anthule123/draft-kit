@@ -11,10 +11,11 @@ export default async function Page({
     const { lang } = await params
     const dict = await getDictionary(lang) // en
     return (
-        <div>
-            You now acess to {`${lang}`} language.
-            <button>{dict.products.cart}</button>
-            <Home/> 
+        <div className='center'>
+           <div>
+             {dict.language.notice}
+              <Home params={params}/>
+           </div>
         </div>
     )
   }

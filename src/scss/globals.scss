@@ -1,4 +1,4 @@
-@use "abstract/display";
+@use "abstract/display" as display;
 @use 'abstract/colors';
 @use "base/typo";
 @use "base/reset";
@@ -39,4 +39,7 @@ details{
     right: 10px;
     top: 10px;
     z-index : 3;
+}
+.center{
+    @include display.center;
 }
