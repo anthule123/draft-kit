@@ -14,13 +14,13 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   trailingSlash: true,
   assetPrefix: process.env.NODE_ENV === "production" ?
-   "/draft-kit" : "",
+   "/draftkit" : "",
 };
 
 if (process.env.NODE_ENV === "production") {
    nextConfig.output = "export";
   nextConfig.images = { unoptimized: true };
-  nextConfig.basePath = "/draft-kit";
+  nextConfig.basePath = "/draftkit";
 }
 
 const withMDX = createMDX({
