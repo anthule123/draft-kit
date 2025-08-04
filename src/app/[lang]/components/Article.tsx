@@ -37,42 +37,45 @@ const Article: React.FC<ArticleProps> = ({ children, className, ...props }) => {
 
     setHeadings(newHeadings);
   }, [children]); // đảm bảo cập nhật khi nội dung thay đổi
-  const MyArticle = () => <article ref={articleRef} className={className} {...props}>
-  {children}
-    </article>
 
   return (
     <div>
         <PanelGroup autoSaveId="example" direction="horizontal">
                     <Panel defaultSize={80}>
-                    <MyArticle/>
+                    <article ref={articleRef} 
+                    className={className} {...props}>
+                        {children}
+                    </article>
                     </Panel>
                   <PanelResizeHandle
                      className={`resizeHandler
                        ${style.tocShow}`}
                  />
                 <Panel className={`${style.tocContainer} ${style.tocShow}`}>
-                <div className={style.toc}>{myToc(headings)}</div>
+                {headings.length > 0 && <div className={style.toc}>{myToc(headings)}</div>}
                 </Panel>
          </PanelGroup>
          <GiscusComments />
         <LanguageSwitcher />
-    
     </div>
   );
 };
 
 export default Article; 
 
-export function myToc(headings: Heading[]){
-  return <nav className=''>
-  <h3>Mục lục bài viết</h3>
-  <ul>
-    {headings.map(({ id, text, level }) => (
-      <li key={id} style={{ marginLeft: (level-3) * 10 }}>
-        <a href={`#${id}`}>{text}</a>
-      </li>
-    ))}
-  </ul>
-</nav>
+export function myToc(headings: Heading[]) {
+  return (
+    <nav>
+      <h3>Mục lục bài viết</h3>
+      <ul>
+        {headings.map(({ id, text, level }) => (
+          <li key={id} style={{ marginLeft: (level - 1) * 10 }}>
+            <a href={`#${id}`}>
+              {text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 }
